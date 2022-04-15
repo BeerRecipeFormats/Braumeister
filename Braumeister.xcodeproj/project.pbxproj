@@ -17,7 +17,7 @@
 		E9D60AA728094BD800680815 /* Gravity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AA628094BD800680815 /* Gravity.swift */; };
 		E9D60AAA2809952400680815 /* UIFont+fromFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AA92809952400680815 /* UIFont+fromFont.swift */; };
 		E9D60AAC280995E500680815 /* String+width.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AAB280995E500680815 /* String+width.swift */; };
-		E9D60AAE2809A9B700680815 /* Binding+onChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AAD2809A9B700680815 /* Binding+onChange.swift */; };
+		E9D60AB2280A181B00680815 /* BrewhouseYieldCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AB1280A181B00680815 /* BrewhouseYieldCalculatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,9 +33,9 @@
 		E9D60AA628094BD800680815 /* Gravity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gravity.swift; sourceTree = "<group>"; };
 		E9D60AA92809952400680815 /* UIFont+fromFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+fromFont.swift"; sourceTree = "<group>"; };
 		E9D60AAB280995E500680815 /* String+width.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+width.swift"; sourceTree = "<group>"; };
-		E9D60AAD2809A9B700680815 /* Binding+onChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+onChange.swift"; sourceTree = "<group>"; };
 		E9D60AAF280A14CF00680815 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E9D60AB0280A14EB00680815 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		E9D60AB1280A181B00680815 /* BrewhouseYieldCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewhouseYieldCalculatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				E9D60AA32808B54500680815 /* AlcoholCalculatorView.swift */,
+				E9D60AB1280A181B00680815 /* BrewhouseYieldCalculatorView.swift */,
 			);
 			path = CalculationViews;
 			sourceTree = "<group>";
@@ -135,7 +136,6 @@
 		E9D60AA82809950200680815 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				E9D60AAD2809A9B700680815 /* Binding+onChange.swift */,
 				E9D60AAB280995E500680815 /* String+width.swift */,
 				E9D60AA92809952400680815 /* UIFont+fromFont.swift */,
 			);
@@ -179,11 +179,10 @@
 			};
 			buildConfigurationList = E9D60A7E2807DCD300680815 /* Build configuration list for PBXProject "Braumeister" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
-				Base,
+				de,
 			);
 			mainGroup = E9D60A7A2807DCD300680815;
 			productRefGroup = E9D60A842807DCD300680815 /* Products */;
@@ -213,11 +212,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9D60A9B2807DE0500680815 /* ContentView.swift in Sources */,
+				E9D60AB2280A181B00680815 /* BrewhouseYieldCalculatorView.swift in Sources */,
 				E9D60AA42808B54500680815 /* AlcoholCalculatorView.swift in Sources */,
 				E9D60AA12808AF2D00680815 /* SplashView.swift in Sources */,
 				E9D60A9F2808AF1A00680815 /* MenuView.swift in Sources */,
 				E9D60AA728094BD800680815 /* Gravity.swift in Sources */,
-				E9D60AAE2809A9B700680815 /* Binding+onChange.swift in Sources */,
 				E9D60A9A2807DE0500680815 /* BraumeisterApp.swift in Sources */,
 				E9D60AAA2809952400680815 /* UIFont+fromFont.swift in Sources */,
 				E9D60AAC280995E500680815 /* String+width.swift in Sources */,
@@ -348,7 +347,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_PREVIEWS = YES;
@@ -380,7 +379,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_PREVIEWS = YES;

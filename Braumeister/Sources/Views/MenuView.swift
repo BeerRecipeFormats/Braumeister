@@ -28,6 +28,7 @@ struct MenuView: View {
     List {
       Section("Berechnungen") {
         NavigationLink("Alkoholgehalt", destination: AlcoholCalculatorView())
+        NavigationLink("Sudhausausbeute", destination: BrewhouseYieldCalculatorView())
       }
     }
     Spacer()

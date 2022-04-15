@@ -122,7 +122,6 @@ struct AlcoholCalculatorView: View {
       ogUnit = val
       og = Gravity.for(unit: ogUnit, value: og)
     }
-
   }
 
   private func fgBinding() -> Binding<Float> {
