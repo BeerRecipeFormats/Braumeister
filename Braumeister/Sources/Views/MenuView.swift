@@ -28,9 +28,11 @@ struct MenuView: View {
     List {
       Section("Berechnungen") {
         NavigationLink("Alkoholgehalt", destination: AlcoholCalculatorView())
+        NavigationLink("Stammwürzerechner", destination: OriginalWortCalculatorView())
         NavigationLink("Sudhausausbeute", destination: BrewhouseYieldCalculatorView())
+        NavigationLink("Verdünnungsrechner", destination: DilutionCalculatorView())
       }
     }
-    Spacer()
+    .navigationTitle("Braumeister")
   }
 }

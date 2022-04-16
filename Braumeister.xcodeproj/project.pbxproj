@@ -18,6 +18,8 @@
 		E9D60AAA2809952400680815 /* UIFont+fromFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AA92809952400680815 /* UIFont+fromFont.swift */; };
 		E9D60AAC280995E500680815 /* String+width.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AAB280995E500680815 /* String+width.swift */; };
 		E9D60AB2280A181B00680815 /* BrewhouseYieldCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AB1280A181B00680815 /* BrewhouseYieldCalculatorView.swift */; };
+		E9D60AB4280A257F00680815 /* OriginalWortCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AB3280A257F00680815 /* OriginalWortCalculatorView.swift */; };
+		E9D60AB9280A36E300680815 /* DilutionCalculatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D60AB8280A36E300680815 /* DilutionCalculatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		E9D60AAF280A14CF00680815 /* LICENSE.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 		E9D60AB0280A14EB00680815 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		E9D60AB1280A181B00680815 /* BrewhouseYieldCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewhouseYieldCalculatorView.swift; sourceTree = "<group>"; };
+		E9D60AB3280A257F00680815 /* OriginalWortCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginalWortCalculatorView.swift; sourceTree = "<group>"; };
+		E9D60AB8280A36E300680815 /* DilutionCalculatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DilutionCalculatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 			children = (
 				E9D60AA32808B54500680815 /* AlcoholCalculatorView.swift */,
 				E9D60AB1280A181B00680815 /* BrewhouseYieldCalculatorView.swift */,
+				E9D60AB8280A36E300680815 /* DilutionCalculatorView.swift */,
+				E9D60AB3280A257F00680815 /* OriginalWortCalculatorView.swift */,
 			);
 			path = CalculationViews;
 			sourceTree = "<group>";
@@ -215,9 +221,11 @@
 				E9D60AB2280A181B00680815 /* BrewhouseYieldCalculatorView.swift in Sources */,
 				E9D60AA42808B54500680815 /* AlcoholCalculatorView.swift in Sources */,
 				E9D60AA12808AF2D00680815 /* SplashView.swift in Sources */,
+				E9D60AB4280A257F00680815 /* OriginalWortCalculatorView.swift in Sources */,
 				E9D60A9F2808AF1A00680815 /* MenuView.swift in Sources */,
 				E9D60AA728094BD800680815 /* Gravity.swift in Sources */,
 				E9D60A9A2807DE0500680815 /* BraumeisterApp.swift in Sources */,
+				E9D60AB9280A36E300680815 /* DilutionCalculatorView.swift in Sources */,
 				E9D60AAA2809952400680815 /* UIFont+fromFont.swift in Sources */,
 				E9D60AAC280995E500680815 /* String+width.swift in Sources */,
 			);
@@ -347,7 +355,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_PREVIEWS = YES;
@@ -368,7 +376,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Debug;
 		};
@@ -379,7 +387,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_PREVIEWS = YES;
@@ -400,7 +408,7 @@
 				SUPPORTS_MACCATALYST = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = "1,2,6";
 			};
 			name = Release;
 		};
