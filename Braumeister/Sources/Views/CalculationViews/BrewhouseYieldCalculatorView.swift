@@ -31,7 +31,7 @@ struct BrewhouseYieldCalculatorView: View {
         HStack {
           TextField("Stammwürze", value: bind($grainBill), formatter: numberFormatter)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
+            .frame(width: .NumericInputFieldWidth)
           Text("kg")
         }
 
@@ -39,7 +39,7 @@ struct BrewhouseYieldCalculatorView: View {
         HStack {
           TextField("Ausschlagvolumen", value: bind($wortVolume), formatter: numberFormatter)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
+            .frame(width: .NumericInputFieldWidth)
           Text("Liter")
         }
 
@@ -53,11 +53,13 @@ struct BrewhouseYieldCalculatorView: View {
               Text(unit).tag(unit.id)
             }
           }
-          .pickerStyle(SegmentedPickerStyle())
+          .pickerStyle(MenuPickerStyle())
+          .frame(width: .GravityPickerWidth)
+          .padding(.leading, 10)
         }
 
-        Text("Sudhausausbeute:").bold()
-        Text(String(format: "%.0f%%", brewhouseYield)).bold()
+        Text("Sudhausausbeute:").font(.title)
+        Text(String(format: "%.0f%%", brewhouseYield)).font(.title)
       }
     }
     .navigationTitle("Sudhausausbeute")

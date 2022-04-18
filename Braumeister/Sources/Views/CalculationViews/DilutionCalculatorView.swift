@@ -26,43 +26,51 @@ struct DilutionCalculatorView: View {
   
   var body: some View {
     Form {
-      LazyVGrid(columns: [GridItem(alignment: .trailing), GridItem(alignment: .leading)], spacing: 10) {
-        Text("Stammwürze:")
+      //LazyVGrid(columns: [GridItem(alignment: .trailing), GridItem(alignment: .leading)], spacing: 10) {
+      Section("Stammwürze:") {
         HStack {
           TextField("Stammwürze", value: gravityBinding($og), formatter: numberFormatter)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
+            .frame(width: .NumericInputFieldWidth)
           Picker("", selection: gravityUnitBinding($og, $ogUnit)) {
             ForEach(Gravity.allUnits, id: \.id) { unit in
               Text(unit).tag(unit.id)
             }
           }
-          .pickerStyle(SegmentedPickerStyle())
+          .pickerStyle(MenuPickerStyle())
+          .frame(width: .GravityPickerWidth)
+          .padding(.leading, 10)
         }
+      }
 
-        Text("Würzemenge:")
+      Section("Würzemenge:") {
         HStack {
           TextField("Volumen", value: $volume, formatter: numberFormatter)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
+            .frame(width: .NumericInputFieldWidth)
           Text("Liter")
         }
+      }
 
-        Text("Gewünschte Stammwürze:")
+      Section("Gewünschte Stammwürze:") {
         HStack {
           TextField("Stammwürze", value: gravityBinding($targetOg), formatter: numberFormatter)
             .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
+            .frame(width: .NumericInputFieldWidth)
           Picker("", selection: gravityUnitBinding($targetOg, $targetOgUnit)) {
             ForEach(Gravity.allUnits, id: \.id) { unit in
               Text(unit).tag(unit.id)
             }
           }
-          .pickerStyle(SegmentedPickerStyle())
+          .pickerStyle(MenuPickerStyle())
+          .frame(width: .GravityPickerWidth)
+          .padding(.leading, 10)
         }
+      }
 
-        Text("Verdünnung:").bold()
-        Text(String(format: "%.1f Liter", fillVolume))
+
+      Section("Verdünnung:") {
+        Text(String(format: "%.1f Liter", fillVolume)).font(.title)
       }
     }
     .navigationTitle("Verdünnungsrechner")

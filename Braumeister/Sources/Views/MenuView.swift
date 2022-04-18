@@ -26,6 +26,10 @@ struct MenuView: View {
 
   var body: some View {
     List {
+      Section("Rezepte") {
+        Text("Keine Rezepte vorhanden!").italic()
+      }
+
       Section("Berechnungen") {
         NavigationLink("Alkoholgehalt", destination: AlcoholCalculatorView())
         NavigationLink("Stammwürzerechner", destination: OriginalWortCalculatorView())
