@@ -27,6 +27,7 @@ struct HopsInStockEditorView: View {
   var body: some View {
     if !initialSave() {
       Text("Fehler beim Speichern der Daten!")
+        .navigationTitle("Hopfenbestand bearbeiten")
     } else {
       GeometryReader { geometry in
         Form {
@@ -115,6 +116,7 @@ struct HopsInStockEditorView: View {
         }
         .frame(height: geometry.size.height)
       }
+      .onDisappear(perform: self.updateDatabase)
       .padding([.leading, .top], 20)
       .padding(.trailing, 100)
       .navigationTitle("Hopfenbestand bearbeiten")
