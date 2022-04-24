@@ -20,10 +20,6 @@
 
 import Foundation
 
-extension String: Identifiable {
-  public var id: Int { return self.hashValue }
-}
-
 enum Gravity {
 
   // MARK: - Cases

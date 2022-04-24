@@ -1,8 +1,8 @@
 //
-//  BraumeisterApp.swift
+//  String+Identifiable.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 14.04.22.
+//  Created by Thomas Bonk on 24.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,17 +18,8 @@
 //  limitations under the License.
 //
 
-import SwiftUI
+import Foundation
 
-@main
-struct BraumeisterApp: App {
-
-  // MARK: - Public Properties
-  
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
-        .environmentObject(Repository())
-    }
-  }
+extension String: Identifiable {
+  public var id: Int { return self.hashValue }
 }

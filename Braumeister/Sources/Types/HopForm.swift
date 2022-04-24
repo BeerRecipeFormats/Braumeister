@@ -1,8 +1,8 @@
 //
-//  BraumeisterApp.swift
+//  HopForm.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 14.04.22.
+//  Created by Thomas Bonk on 24.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,17 +18,34 @@
 //  limitations under the License.
 //
 
+import Foundation
 import SwiftUI
 
-@main
-struct BraumeisterApp: App {
+enum HopForm: String, Codable, RawRepresentable, CaseIterable {
 
-  // MARK: - Public Properties
-  
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
-        .environmentObject(Repository())
+  // MARK: - Cases
+
+  case green = "green"
+  case cone = "cone"
+  case pellets = "pellets"
+  case extract = "extract"
+
+
+  // MARK: - Properties
+
+  var localizedName: String {
+    switch self {
+      case .green:
+        return LocalizedStringKey("Grünhopfen").string
+
+      case .cone:
+        return LocalizedStringKey("Doldenhopfen").string
+
+      case .pellets:
+        return LocalizedStringKey("Pellets").string
+
+      case .extract:
+        return LocalizedStringKey("Extrakt").string
     }
   }
 }

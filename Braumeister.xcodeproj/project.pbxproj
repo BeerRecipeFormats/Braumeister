@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E910882C281538F90080CF87 /* Fluent in Frameworks */ = {isa = PBXBuildFile; productRef = E910882B281538F90080CF87 /* Fluent */; };
+		E910882F281539550080CF87 /* FluentSQLiteDriver in Frameworks */ = {isa = PBXBuildFile; productRef = E910882E281539550080CF87 /* FluentSQLiteDriver */; };
+		E910883128153A680080CF87 /* String+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910883028153A680080CF87 /* String+Identifiable.swift */; };
+		E910883528153AC60080CF87 /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910883428153AC60080CF87 /* BaseEntity.swift */; };
+		E910883728153DCC0080CF87 /* HopsInStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910883628153DCC0080CF87 /* HopsInStock.swift */; };
+		E9108839281543870080CF87 /* HopForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9108838281543870080CF87 /* HopForm.swift */; };
+		E910883B2815476C0080CF87 /* LocalizedStringKey+string.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910883A2815476C0080CF87 /* LocalizedStringKey+string.swift */; };
+		E910883D28154C650080CF87 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E910883C28154C650080CF87 /* Repository.swift */; };
+		E94ECC9728155A8300E80EBE /* HopsInStockEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94ECC9628155A8300E80EBE /* HopsInStockEditorView.swift */; };
+		E96A5680281551240051C5AC /* Repository+HopsInStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E96A567F281551240051C5AC /* Repository+HopsInStock.swift */; };
+		E9769057281574020018859E /* HopsInStockItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9769056281574020018859E /* HopsInStockItemView.swift */; };
 		E9AB0DFC280C79ED000B1411 /* CGFloat+Widths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9AB0DFB280C79ED000B1411 /* CGFloat+Widths.swift */; };
 		E9D60A8B2807DCD400680815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D60A8A2807DCD400680815 /* Assets.xcassets */; };
 		E9D60A8E2807DCD400680815 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D60A8D2807DCD400680815 /* Preview Assets.xcassets */; };
@@ -24,6 +35,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E910883028153A680080CF87 /* String+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Identifiable.swift"; sourceTree = "<group>"; };
+		E910883428153AC60080CF87 /* BaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
+		E910883628153DCC0080CF87 /* HopsInStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopsInStock.swift; sourceTree = "<group>"; };
+		E9108838281543870080CF87 /* HopForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopForm.swift; sourceTree = "<group>"; };
+		E910883A2815476C0080CF87 /* LocalizedStringKey+string.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocalizedStringKey+string.swift"; sourceTree = "<group>"; };
+		E910883C28154C650080CF87 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		E94ECC9628155A8300E80EBE /* HopsInStockEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopsInStockEditorView.swift; sourceTree = "<group>"; };
+		E96A567F281551240051C5AC /* Repository+HopsInStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+HopsInStock.swift"; sourceTree = "<group>"; };
+		E9769056281574020018859E /* HopsInStockItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HopsInStockItemView.swift; sourceTree = "<group>"; };
 		E9AB0DFB280C79ED000B1411 /* CGFloat+Widths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Widths.swift"; sourceTree = "<group>"; };
 		E9D60A832807DCD300680815 /* Braumeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braumeister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D60A8A2807DCD400680815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,12 +69,50 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E910882F281539550080CF87 /* FluentSQLiteDriver in Frameworks */,
+				E910882C281538F90080CF87 /* Fluent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E910883228153A8F0080CF87 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				E910883C28154C650080CF87 /* Repository.swift */,
+				E96A567F281551240051C5AC /* Repository+HopsInStock.swift */,
+				E910883328153AB10080CF87 /* Model */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		E910883328153AB10080CF87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E910883428153AC60080CF87 /* BaseEntity.swift */,
+				E910883628153DCC0080CF87 /* HopsInStock.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E94ECC95281559DC00E80EBE /* StockEditorViews */ = {
+			isa = PBXGroup;
+			children = (
+				E94ECC9628155A8300E80EBE /* HopsInStockEditorView.swift */,
+			);
+			path = StockEditorViews;
+			sourceTree = "<group>";
+		};
+		E9769055281573DC0018859E /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				E9D60A9E2808AF1A00680815 /* MenuView.swift */,
+				E9769056281574020018859E /* HopsInStockItemView.swift */,
+			);
+			path = MenuView;
+			sourceTree = "<group>";
+		};
 		E9D60A7A2807DCD300680815 = {
 			isa = PBXGroup;
 			children = (
@@ -97,7 +155,8 @@
 			children = (
 				E9D60A962807DE0500680815 /* Application */,
 				E9D60AA82809950200680815 /* Extensions */,
-				E9D60AA528094B6800680815 /* Model */,
+				E910883228153A8F0080CF87 /* Persistence */,
+				E9D60AA528094B6800680815 /* Types */,
 				E9D60A982807DE0500680815 /* Views */,
 			);
 			path = Sources;
@@ -115,8 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				E9D60AA22808B48A00680815 /* CalculationViews */,
+				E9769055281573DC0018859E /* MenuView */,
+				E94ECC95281559DC00E80EBE /* StockEditorViews */,
 				E9D60A992807DE0500680815 /* ContentView.swift */,
-				E9D60A9E2808AF1A00680815 /* MenuView.swift */,
 				E9D60AA02808AF2D00680815 /* SplashView.swift */,
 			);
 			path = Views;
@@ -133,12 +193,13 @@
 			path = CalculationViews;
 			sourceTree = "<group>";
 		};
-		E9D60AA528094B6800680815 /* Model */ = {
+		E9D60AA528094B6800680815 /* Types */ = {
 			isa = PBXGroup;
 			children = (
 				E9D60AA628094BD800680815 /* Gravity.swift */,
+				E9108838281543870080CF87 /* HopForm.swift */,
 			);
-			path = Model;
+			path = Types;
 			sourceTree = "<group>";
 		};
 		E9D60AA82809950200680815 /* Extensions */ = {
@@ -147,6 +208,8 @@
 				E9AB0DFB280C79ED000B1411 /* CGFloat+Widths.swift */,
 				E9D60AAB280995E500680815 /* String+width.swift */,
 				E9D60AA92809952400680815 /* UIFont+fromFont.swift */,
+				E910883028153A680080CF87 /* String+Identifiable.swift */,
+				E910883A2815476C0080CF87 /* LocalizedStringKey+string.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -167,6 +230,10 @@
 			dependencies = (
 			);
 			name = Braumeister;
+			packageProductDependencies = (
+				E910882B281538F90080CF87 /* Fluent */,
+				E910882E281539550080CF87 /* FluentSQLiteDriver */,
+			);
 			productName = Braumeister;
 			productReference = E9D60A832807DCD300680815 /* Braumeister.app */;
 			productType = "com.apple.product-type.application";
@@ -194,6 +261,10 @@
 				de,
 			);
 			mainGroup = E9D60A7A2807DCD300680815;
+			packageReferences = (
+				E910882A281538F90080CF87 /* XCRemoteSwiftPackageReference "fluent" */,
+				E910882D281539550080CF87 /* XCRemoteSwiftPackageReference "fluent-sqlite-driver" */,
+			);
 			productRefGroup = E9D60A842807DCD300680815 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -222,16 +293,25 @@
 			files = (
 				E9D60A9B2807DE0500680815 /* ContentView.swift in Sources */,
 				E9D60AB2280A181B00680815 /* BrewhouseYieldCalculatorView.swift in Sources */,
+				E96A5680281551240051C5AC /* Repository+HopsInStock.swift in Sources */,
+				E910883728153DCC0080CF87 /* HopsInStock.swift in Sources */,
 				E9D60AA42808B54500680815 /* AlcoholCalculatorView.swift in Sources */,
 				E9D60AA12808AF2D00680815 /* SplashView.swift in Sources */,
+				E9108839281543870080CF87 /* HopForm.swift in Sources */,
 				E9AB0DFC280C79ED000B1411 /* CGFloat+Widths.swift in Sources */,
 				E9D60AB4280A257F00680815 /* OriginalWortCalculatorView.swift in Sources */,
+				E9769057281574020018859E /* HopsInStockItemView.swift in Sources */,
 				E9D60A9F2808AF1A00680815 /* MenuView.swift in Sources */,
 				E9D60AA728094BD800680815 /* Gravity.swift in Sources */,
+				E910883128153A680080CF87 /* String+Identifiable.swift in Sources */,
+				E910883528153AC60080CF87 /* BaseEntity.swift in Sources */,
 				E9D60A9A2807DE0500680815 /* BraumeisterApp.swift in Sources */,
 				E9D60AB9280A36E300680815 /* DilutionCalculatorView.swift in Sources */,
+				E910883B2815476C0080CF87 /* LocalizedStringKey+string.swift in Sources */,
 				E9D60AAA2809952400680815 /* UIFont+fromFont.swift in Sources */,
+				E94ECC9728155A8300E80EBE /* HopsInStockEditorView.swift in Sources */,
 				E9D60AAC280995E500680815 /* String+width.swift in Sources */,
+				E910883D28154C650080CF87 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +439,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 212;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_PREVIEWS = YES;
@@ -368,8 +448,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,7 +473,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 212;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_PREVIEWS = YES;
@@ -400,8 +482,10 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,6 +522,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E910882A281538F90080CF87 /* XCRemoteSwiftPackageReference "fluent" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/fluent.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		E910882D281539550080CF87 /* XCRemoteSwiftPackageReference "fluent-sqlite-driver" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/fluent-sqlite-driver.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E910882B281538F90080CF87 /* Fluent */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E910882A281538F90080CF87 /* XCRemoteSwiftPackageReference "fluent" */;
+			productName = Fluent;
+		};
+		E910882E281539550080CF87 /* FluentSQLiteDriver */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E910882D281539550080CF87 /* XCRemoteSwiftPackageReference "fluent-sqlite-driver" */;
+			productName = FluentSQLiteDriver;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = E9D60A7B2807DCD300680815 /* Project object */;
 }

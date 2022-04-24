@@ -1,8 +1,8 @@
 //
-//  MenuView.swift
+//  LocalizedStringKey+string.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 14.04.22.
+//  Created by Thomas Bonk on 24.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,25 +18,16 @@
 //  limitations under the License.
 //
 
+import Foundation
 import SwiftUI
 
-struct MenuView: View {
+extension LocalizedStringKey {
+  var string: String {
+    let description = "\(self)"
 
-  // MARK: - Public Properties
+    let components = description.components(separatedBy: "key: \"")
+      .map { $0.components(separatedBy: "\",") }
 
-  var body: some View {
-    List {
-      Section("Rezepte") {
-        Text("Keine Rezepte vorhanden!").italic()
-      }
-
-      Section("Berechnungen") {
-        NavigationLink("Alkoholgehalt", destination: AlcoholCalculatorView())
-        NavigationLink("Stammwürzerechner", destination: OriginalWortCalculatorView())
-        NavigationLink("Sudhausausbeute", destination: BrewhouseYieldCalculatorView())
-        NavigationLink("Verdünnungsrechner", destination: DilutionCalculatorView())
-      }
-    }
-    .navigationTitle("Braumeister")
+    return components[1][0]
   }
 }

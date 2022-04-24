@@ -1,8 +1,8 @@
 //
-//  BraumeisterApp.swift
+//  BaseEntity.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 14.04.22.
+//  Created by Thomas Bonk on 24.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,17 +18,13 @@
 //  limitations under the License.
 //
 
-import SwiftUI
+import Foundation
 
-@main
-struct BraumeisterApp: App {
+protocol BaseEntity: AnyObject {
 
-  // MARK: - Public Properties
-  
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
-        .environmentObject(Repository())
-    }
-  }
+  // MARK: - Properties
+
+  var id: UUID? { get set }
+  var createdAt: Date? { get set }
+  var modifiedAt: Date? { get set }
 }
