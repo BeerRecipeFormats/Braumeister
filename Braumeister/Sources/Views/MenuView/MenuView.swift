@@ -30,6 +30,10 @@ struct MenuView: View {
         Text("Keine Rezepte vorhanden!").italic()
       }
 
+      DisclosureGroup("Sude", isExpanded: $brewsDisclosed) {
+        Text("Keine Sude vorhanden!").italic()
+      }
+
       DisclosureGroup("Bestand", isExpanded: $stockDisclosed) {
         DisclosureGroup(isExpanded: $hopsInStockDisclosed) {
           if repository.hopsInStock.isEmpty {
@@ -47,6 +51,7 @@ struct MenuView: View {
             Text("Hopfen")
             NavigationLink(isActive: $createHopsInStock, destination: { HopsInStockEditorView() }) {
               Button(action: { createHopsInStock = true }, label: { Image(systemName: "plus.rectangle.fill") })
+                .buttonStyle(.borderless)
             }
           }
         }
@@ -59,6 +64,7 @@ struct MenuView: View {
         NavigationLink("Verdünnungsrechner", destination: DilutionCalculatorView())
       }
     }
+    .listStyle(.sidebar)
     .navigationTitle("Braumeister")
   }
 
@@ -73,6 +79,8 @@ struct MenuView: View {
 
   @AppStorage("menu_recipesDisclosed", store: .standard)
   private var recipesDisclosed = false
+  @AppStorage("menu_brewsDisclosed", store: .standard)
+  private var brewsDisclosed = false
   @AppStorage("menu_stockDisclosed", store: .standard)
   private var stockDisclosed = true
   @AppStorage("menu_stock_hopsInStockDisclosed", store: .standard)
