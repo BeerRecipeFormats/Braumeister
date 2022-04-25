@@ -58,9 +58,10 @@ class Repository: ObservableObject {
 
     do {
       try HopsInStock.Fly().prepare(on: database).wait()
-    }
-    catch {
-      // Handle Error
+    } catch {
+      fatalErrorAlert(
+        message: "Fehler beim Initialisieren der Datenbank. Braumeister wird beendet.",
+          error: error)
     }
   }
 }

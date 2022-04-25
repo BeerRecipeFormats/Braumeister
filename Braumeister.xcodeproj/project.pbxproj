@@ -32,6 +32,12 @@
 		E94E97682815AD9100F9C310 /* Fluent in Frameworks */ = {isa = PBXBuildFile; productRef = E94E97672815AD9100F9C310 /* Fluent */; };
 		E94E976B2815ADA600F9C310 /* FluentSQLiteDriver in Frameworks */ = {isa = PBXBuildFile; productRef = E94E976A2815ADA600F9C310 /* FluentSQLiteDriver */; };
 		E94E976D2815DDA700F9C310 /* CGFloat+widths.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E976C2815DDA700F9C310 /* CGFloat+widths.swift */; };
+		E94E976F281652E700F9C310 /* FermentablesInStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E976E281652E700F9C310 /* FermentablesInStock.swift */; };
+		E94E9771281653B900F9C310 /* FermentableType.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E9770281653B900F9C310 /* FermentableType.swift */; };
+		E94E97732817059000F9C310 /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E97722817059000F9C310 /* Alert.swift */; };
+		E94E97762817061900F9C310 /* ValueWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E97752817061900F9C310 /* ValueWrapper.swift */; };
+		E94E9778281706DC00F9C310 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E9777281706DC00F9C310 /* AlertView.swift */; };
+		E94E977B2817078300F9C310 /* PureSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E94E977A2817078300F9C310 /* PureSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +66,11 @@
 		E94E974F2815AD4500F9C310 /* OriginalWortCalculatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginalWortCalculatorView.swift; sourceTree = "<group>"; };
 		E94E97502815AD4500F9C310 /* DilutionCalculatorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DilutionCalculatorView.swift; sourceTree = "<group>"; };
 		E94E976C2815DDA700F9C310 /* CGFloat+widths.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+widths.swift"; sourceTree = "<group>"; };
+		E94E976E281652E700F9C310 /* FermentablesInStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentablesInStock.swift; sourceTree = "<group>"; };
+		E94E9770281653B900F9C310 /* FermentableType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentableType.swift; sourceTree = "<group>"; };
+		E94E97722817059000F9C310 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		E94E97752817061900F9C310 /* ValueWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueWrapper.swift; sourceTree = "<group>"; };
+		E94E9777281706DC00F9C310 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +79,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E94E976B2815ADA600F9C310 /* FluentSQLiteDriver in Frameworks */,
+				E94E977B2817078300F9C310 /* PureSwiftUI in Frameworks */,
 				E94E97682815AD9100F9C310 /* Fluent in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,6 +129,7 @@
 				E94E97362815AD4500F9C310 /* Extensions */,
 				E94E973C2815AD4500F9C310 /* Persistence */,
 				E94E97332815AD4500F9C310 /* Types */,
+				E94E9774281705F700F9C310 /* Utils */,
 				E94E97442815AD4500F9C310 /* Views */,
 			);
 			path = Sources;
@@ -125,8 +138,9 @@
 		E94E97332815AD4500F9C310 /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				E94E97342815AD4500F9C310 /* HopForm.swift */,
+				E94E9770281653B900F9C310 /* FermentableType.swift */,
 				E94E97352815AD4500F9C310 /* Gravity.swift */,
+				E94E97342815AD4500F9C310 /* HopForm.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -157,6 +171,7 @@
 			isa = PBXGroup;
 			children = (
 				E94E97402815AD4500F9C310 /* BaseEntity.swift */,
+				E94E976E281652E700F9C310 /* FermentablesInStock.swift */,
 				E94E97412815AD4500F9C310 /* HopsInStock.swift */,
 			);
 			path = Model;
@@ -166,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				E94E97432815AD4500F9C310 /* BraumeisterApp.swift */,
+				E94E97722817059000F9C310 /* Alert.swift */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -178,6 +194,7 @@
 				E94E97482815AD4500F9C310 /* StockEditorViews */,
 				E94E974B2815AD4500F9C310 /* ContentView.swift */,
 				E94E974A2815AD4500F9C310 /* SplashView.swift */,
+				E94E9777281706DC00F9C310 /* AlertView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +227,14 @@
 			path = CalculationViews;
 			sourceTree = "<group>";
 		};
+		E94E9774281705F700F9C310 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E94E97752817061900F9C310 /* ValueWrapper.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -229,6 +254,7 @@
 			packageProductDependencies = (
 				E94E97672815AD9100F9C310 /* Fluent */,
 				E94E976A2815ADA600F9C310 /* FluentSQLiteDriver */,
+				E94E977A2817078300F9C310 /* PureSwiftUI */,
 			);
 			productName = Braumeister;
 			productReference = E94E97202815ACD100F9C310 /* Braumeister.app */;
@@ -261,6 +287,7 @@
 			packageReferences = (
 				E94E97662815AD9100F9C310 /* XCRemoteSwiftPackageReference "fluent" */,
 				E94E97692815ADA600F9C310 /* XCRemoteSwiftPackageReference "fluent-sqlite-driver" */,
+				E94E97792817078300F9C310 /* XCRemoteSwiftPackageReference "pure-swift-ui" */,
 			);
 			productRefGroup = E94E97212815ACD100F9C310 /* Products */;
 			projectDirPath = "";
@@ -289,22 +316,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				E94E97522815AD4500F9C310 /* Gravity.swift in Sources */,
+				E94E9771281653B900F9C310 /* FermentableType.swift in Sources */,
 				E94E97602815AD4500F9C310 /* SplashView.swift in Sources */,
 				E94E975A2815AD4500F9C310 /* BaseEntity.swift in Sources */,
 				E94E975F2815AD4500F9C310 /* HopsInStockEditorView.swift in Sources */,
 				E94E97572815AD4500F9C310 /* String+Identifiable.swift in Sources */,
+				E94E97732817059000F9C310 /* Alert.swift in Sources */,
 				E94E975C2815AD4500F9C310 /* BraumeisterApp.swift in Sources */,
 				E94E97532815AD4500F9C310 /* NSFont+fromFont.swift in Sources */,
+				E94E976F281652E700F9C310 /* FermentablesInStock.swift in Sources */,
 				E94E97612815AD4500F9C310 /* ContentView.swift in Sources */,
 				E94E97552815AD4500F9C310 /* LocalizedStringKey+string.swift in Sources */,
 				E94E976D2815DDA700F9C310 /* CGFloat+widths.swift in Sources */,
 				E94E97622815AD4500F9C310 /* BrewhouseYieldCalculatorView.swift in Sources */,
 				E94E975D2815AD4500F9C310 /* MenuView.swift in Sources */,
 				E94E97512815AD4500F9C310 /* HopForm.swift in Sources */,
+				E94E97762817061900F9C310 /* ValueWrapper.swift in Sources */,
 				E94E975E2815AD4500F9C310 /* HopsInStockItemView.swift in Sources */,
 				E94E97642815AD4500F9C310 /* OriginalWortCalculatorView.swift in Sources */,
 				E94E97542815AD4500F9C310 /* String+width.swift in Sources */,
 				E94E97632815AD4500F9C310 /* AlcoholCalculatorView.swift in Sources */,
+				E94E9778281706DC00F9C310 /* AlertView.swift in Sources */,
 				E94E97652815AD4500F9C310 /* DilutionCalculatorView.swift in Sources */,
 				E94E97582815AD4500F9C310 /* Repository+HopsInStock.swift in Sources */,
 				E94E975B2815AD4500F9C310 /* HopsInStock.swift in Sources */,
@@ -436,7 +468,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 114;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -465,7 +497,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 102;
+				CURRENT_PROJECT_VERSION = 114;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -526,6 +558,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		E94E97792817078300F9C310 /* XCRemoteSwiftPackageReference "pure-swift-ui" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CodeSlicing/pure-swift-ui";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -538,6 +578,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = E94E97692815ADA600F9C310 /* XCRemoteSwiftPackageReference "fluent-sqlite-driver" */;
 			productName = FluentSQLiteDriver;
+		};
+		E94E977A2817078300F9C310 /* PureSwiftUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E94E97792817078300F9C310 /* XCRemoteSwiftPackageReference "pure-swift-ui" */;
+			productName = PureSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

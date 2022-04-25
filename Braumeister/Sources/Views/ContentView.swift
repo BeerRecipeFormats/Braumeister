@@ -29,5 +29,51 @@ struct ContentView: View {
       MenuView()
       SplashView()
     }
+    .sheet(
+      isPresented: $showAlert,
+      onDismiss: {
+        data.value?.dismissCallback()
+      }, content: {
+        AlertView(
+          alertType: data.value?.type ?? .information,
+          message: data.value?.message ?? "",
+          error: data.value?.error)
+      })
+    .onAppear(perform: registerForAlertNotification)
+    .onDisappear(perform: deregisterFromAlertNotification)
+  }
+
+  // MARK: - Private Properties
+
+  @State
+  private var showAlert = false
+
+  @State
+  private var observer: NSObject!
+
+  @ObservedObject
+  private var data: ValueWrapper<AlertData> = ValueWrapper()
+
+
+  // MARK: - Private Methods
+
+  private func registerForAlertNotification() {
+    observer =
+      NotificationCenter
+        .default
+        .addObserver(
+          forName: .showAlert,
+          object: nil,
+          queue: OperationQueue.main,
+          using: showAlert(notification:)) as? NSObject
+  }
+
+  private func deregisterFromAlertNotification() {
+    NotificationCenter.default.removeObserver(observer as Any)
+  }
+
+  private func showAlert(notification: Notification) {
+    self.data.value = notification.alertData
+    self.showAlert = true
   }
 }

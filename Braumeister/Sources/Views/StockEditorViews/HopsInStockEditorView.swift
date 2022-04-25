@@ -160,8 +160,8 @@ struct HopsInStockEditorView: View {
         try repository.create(hopsInStock: item)
         try repository.save(hopsInStock: item)
       } catch {
-        // TODO Handle error
         successful = false
+        errorAlert(message: "Fehler beim Initialisieren des Datensatzes.", error: error)
       }
     }
 
@@ -172,7 +172,7 @@ struct HopsInStockEditorView: View {
     do {
       try repository.save(hopsInStock: item)
     } catch {
-      // TODO Handle error
+      errorAlert(message: "Fehler beim Speichern der Daten.", error: error)
     }
   }
 }

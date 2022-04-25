@@ -64,6 +64,9 @@ struct MenuView: View {
         NavigationLink("Verdünnungsrechner", destination: DilutionCalculatorView())
       }
     }
+    .onAppear(perform: {
+      errorAlert(message: "Dies ist ein Testfehler!.")
+    })
     .listStyle(.sidebar)
     .navigationTitle("Braumeister")
   }
@@ -97,7 +100,9 @@ struct MenuView: View {
         do {
           try await repository.delete(hopsInStock: indexSet)
         } catch {
-          // TODO error handling
+          DispatchQueue.main.async {
+            errorAlert(message: "Fehler beim Löschen der Daten.", error: error)
+          }
         }
       }
     }
