@@ -65,7 +65,8 @@ class HopsInStock: BaseEntity, Model {
     // empty by design
   }
 
-  init(name: String) {
+  init(id: UUID? = nil, name: String) {
+    self.id = id
     self.name = name
     self.amount = 0
     self.amountUnit = "g"
@@ -77,7 +78,9 @@ class HopsInStock: BaseEntity, Model {
 }
 
 extension HopsInStock {
-  struct Fly: Migration {
+  struct V1: Migration {
+    let name = "V1"
+    
     func prepare(on database: Database) -> EventLoopFuture<Void> {
       return database.schema(HopsInStock.schema)
         .id()
@@ -97,8 +100,7 @@ extension HopsInStock {
     }
 
     func revert(on database: Database) -> EventLoopFuture<Void> {
-      return database.schema(HopsInStock.schema)
-        .delete()
+      return database.schema(HopsInStock.schema).delete()
     }
   }
 }

@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-import SwiftUI
+import PureSwiftUI
 
 struct MenuView: View {
 
@@ -43,14 +43,19 @@ struct MenuView: View {
               NavigationLink(destination: { HopsInStockEditorView(item: item) }) {
                 HopsInStockItemView(item: item)
               }
+              .contextMenu(
+                ContextMenu {
+                  Button(action: { repository.delete(hopsInStock: item) }, label: { Text("🗑 Löschen") })
+                })
             }
-            .onDelete(perform: self.deleteHopsInStock)
           }
         } label: {
           HStack {
             Text("Hopfen")
-            NavigationLink(isActive: $createHopsInStock, destination: { HopsInStockEditorView() }) {
-              Button(action: { createHopsInStock = true }, label: { Image(systemName: "plus.rectangle.fill") })
+            NavigationLink(tag: DetailViewTag.hopsInStock, selection: $visibleDetailView) {
+              HopsInStockEditorView()
+            } label: {
+              Button(action: { visibleDetailView = .hopsInStock }, label: { Image(systemName: "plus.rectangle.fill") })
                 .buttonStyle(.borderless)
             }
           }
@@ -64,9 +69,6 @@ struct MenuView: View {
         NavigationLink("Verdünnungsrechner", destination: DilutionCalculatorView())
       }
     }
-    .onAppear(perform: {
-      errorAlert(message: "Dies ist ein Testfehler!.")
-    })
     .listStyle(.sidebar)
     .navigationTitle("Braumeister")
   }
@@ -80,6 +82,9 @@ struct MenuView: View {
   @State
   private var createHopsInStock = false
 
+  @State
+  private var visibleDetailView: DetailViewTag?
+
   @AppStorage("menu_recipesDisclosed", store: .standard)
   private var recipesDisclosed = false
   @AppStorage("menu_brewsDisclosed", store: .standard)
@@ -90,21 +95,4 @@ struct MenuView: View {
   private var hopsInStockDisclosed = true
   @AppStorage("menu_calculationsDisclosed", store: .standard)
   private var calculationsDisclosed = true
-
-
-  // MARK: - Private Methods
-
-  private func deleteHopsInStock(_ indexSet: IndexSet?) {
-    if let indexSet = indexSet {
-      Task {
-        do {
-          try await repository.delete(hopsInStock: indexSet)
-        } catch {
-          DispatchQueue.main.async {
-            errorAlert(message: "Fehler beim Löschen der Daten.", error: error)
-          }
-        }
-      }
-    }
-  }
 }

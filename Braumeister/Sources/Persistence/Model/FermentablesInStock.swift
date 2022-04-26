@@ -43,12 +43,12 @@ class FermentablesInStock: BaseEntity, Model {
   var `type`: FermentableType
   @Field(key: "amount")
   var amount: Float             // amount in kg
-  @Field(key: "color")
-  var color: Float              // color in EBC
-  @Field(key: "origin")
-  var origin: String
-  @Field(key: "max_in_batch")
-  var maxInBatch: UInt8         // The recommended maximum percentage (by weight) this ingredient should represent in a batch of beer.
+  @OptionalField(key: "color")
+  var color: Float?             // color in EBC
+  @OptionalField(key: "origin")
+  var origin: String?
+  @OptionalField(key: "max_in_batch")
+  var maxInBatch: UInt8?        // The recommended maximum percentage (by weight) this ingredient should represent in a batch of beer.
   @OptionalField(key: "notes")
   var notes: String?
 
@@ -59,7 +59,8 @@ class FermentablesInStock: BaseEntity, Model {
     // empty by design
   }
 
-  init(name: String) {
+  init(id: UUID? = nil, name: String) {
+    self.id = id
     self.name = name
     self.type = .grain
     self.amount = 0
@@ -70,28 +71,26 @@ class FermentablesInStock: BaseEntity, Model {
 }
 
 extension FermentablesInStock {
-  struct Fly: Migration {
+  struct V1: Migration {
+    let name = "V1"
+
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-      return database.schema(HopsInStock.schema)
+      return database.schema(FermentablesInStock.schema)
         .id()
         .field("created_at", .datetime, .required)
         .field("modified_at", .datetime, .required)
         .field("name", .string, .required)
+        .field("type", .string, .required)
         .field("amount", .float, .required)
-/*        .field("amount_unit", .string, .required)
-        .field("crop_country", .string, .required)
-        .field("crop_year", .uint16, .required)
-        .field("form", .string, .required)
-        .field("alpha", .float, .required)
-        .field("best_before", .date)
+        .field("color", .float)
+        .field("origin", .string)
+        .field("max_in_batch", .uint8)
         .field("notes", .string)
-        .field("alternatives", .string)*/
         .create()
     }
 
     func revert(on database: Database) -> EventLoopFuture<Void> {
-      return database.schema(HopsInStock.schema)
-        .delete()
+      return database.schema(FermentablesInStock.schema).delete()
     }
   }
 }

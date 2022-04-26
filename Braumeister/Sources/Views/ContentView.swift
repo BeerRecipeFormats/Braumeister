@@ -39,9 +39,9 @@ struct ContentView: View {
           message: data.value?.message ?? "",
           error: data.value?.error)
       })
-    .onAppear(perform: registerForAlertNotification)
     .onDisappear(perform: deregisterFromAlertNotification)
   }
+
 
   // MARK: - Private Properties
 
@@ -53,6 +53,13 @@ struct ContentView: View {
 
   @ObservedObject
   private var data: ValueWrapper<AlertData> = ValueWrapper()
+
+
+  // MARK: - Initialization
+
+  init() {
+    registerForAlertNotification()
+  }
 
 
   // MARK: - Private Methods
@@ -73,7 +80,9 @@ struct ContentView: View {
   }
 
   private func showAlert(notification: Notification) {
-    self.data.value = notification.alertData
-    self.showAlert = true
+    DispatchQueue.main.async {
+      self.data.value = notification.alertData
+      self.showAlert = true
+    }
   }
 }

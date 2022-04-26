@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E94D0B7D2817DB0C00D97E7E /* DetailViewTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94D0B7C2817DB0C00D97E7E /* DetailViewTag.swift */; };
 		E94E97282815ACD200F9C310 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E94E97272815ACD200F9C310 /* Assets.xcassets */; };
 		E94E972B2815ACD200F9C310 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E94E972A2815ACD200F9C310 /* Preview Assets.xcassets */; };
 		E94E97512815AD4500F9C310 /* HopForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E97342815AD4500F9C310 /* HopForm.swift */; };
@@ -41,6 +42,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E94D0B7C2817DB0C00D97E7E /* DetailViewTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewTag.swift; sourceTree = "<group>"; };
 		E94E97202815ACD100F9C310 /* Braumeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braumeister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E94E97272815ACD200F9C310 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E94E972A2815ACD200F9C310 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				E94E9770281653B900F9C310 /* FermentableType.swift */,
 				E94E97352815AD4500F9C310 /* Gravity.swift */,
 				E94E97342815AD4500F9C310 /* HopForm.swift */,
+				E94D0B7C2817DB0C00D97E7E /* DetailViewTag.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -160,8 +163,8 @@
 		E94E973C2815AD4500F9C310 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
-				E94E973D2815AD4500F9C310 /* Repository+HopsInStock.swift */,
 				E94E973E2815AD4500F9C310 /* Repository.swift */,
+				E94E973D2815AD4500F9C310 /* Repository+HopsInStock.swift */,
 				E94E973F2815AD4500F9C310 /* Model */,
 			);
 			path = Persistence;
@@ -329,6 +332,7 @@
 				E94E97552815AD4500F9C310 /* LocalizedStringKey+string.swift in Sources */,
 				E94E976D2815DDA700F9C310 /* CGFloat+widths.swift in Sources */,
 				E94E97622815AD4500F9C310 /* BrewhouseYieldCalculatorView.swift in Sources */,
+				E94D0B7D2817DB0C00D97E7E /* DetailViewTag.swift in Sources */,
 				E94E975D2815AD4500F9C310 /* MenuView.swift in Sources */,
 				E94E97512815AD4500F9C310 /* HopForm.swift in Sources */,
 				E94E97762817061900F9C310 /* ValueWrapper.swift in Sources */,
@@ -468,7 +472,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 114;
+				CURRENT_PROJECT_VERSION = 165;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -497,7 +501,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 114;
+				CURRENT_PROJECT_VERSION = 165;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;
