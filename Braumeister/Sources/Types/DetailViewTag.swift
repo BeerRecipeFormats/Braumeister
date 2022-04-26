@@ -24,8 +24,10 @@ enum DetailViewTag: String, Hashable, Identifiable {
 
   // MARK: - Cases
 
-  case empty = "empty"
-  case hopsInStock = "HopsInStockEditorView"
+  case empty                = "empty"
+  case hopsInStock          = "HopsInStockEditorView"
+  case fermentablesInStock  = "FermentablesInStock"
+  case yeastInStock         = "YeastInStock"
 
 
   // MARK: - Identifiable

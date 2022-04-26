@@ -39,6 +39,9 @@
 		E94E97762817061900F9C310 /* ValueWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E97752817061900F9C310 /* ValueWrapper.swift */; };
 		E94E9778281706DC00F9C310 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E94E9777281706DC00F9C310 /* AlertView.swift */; };
 		E94E977B2817078300F9C310 /* PureSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E94E977A2817078300F9C310 /* PureSwiftUI */; };
+		E9513DAD281852F500C7DD7D /* FermentablesInStockEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9513DAC281852F500C7DD7D /* FermentablesInStockEditorView.swift */; };
+		E9513DAF281854A900C7DD7D /* Repository+FermentablesInStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9513DAE281854A900C7DD7D /* Repository+FermentablesInStock.swift */; };
+		E9513DB12818557800C7DD7D /* FermentablesInStockItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9513DB02818557800C7DD7D /* FermentablesInStockItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +76,9 @@
 		E94E97722817059000F9C310 /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		E94E97752817061900F9C310 /* ValueWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValueWrapper.swift; sourceTree = "<group>"; };
 		E94E9777281706DC00F9C310 /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		E9513DAC281852F500C7DD7D /* FermentablesInStockEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentablesInStockEditorView.swift; sourceTree = "<group>"; };
+		E9513DAE281854A900C7DD7D /* Repository+FermentablesInStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+FermentablesInStock.swift"; sourceTree = "<group>"; };
+		E9513DB02818557800C7DD7D /* FermentablesInStockItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FermentablesInStockItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +170,7 @@
 			isa = PBXGroup;
 			children = (
 				E94E973E2815AD4500F9C310 /* Repository.swift */,
+				E9513DAE281854A900C7DD7D /* Repository+FermentablesInStock.swift */,
 				E94E973D2815AD4500F9C310 /* Repository+HopsInStock.swift */,
 				E94E973F2815AD4500F9C310 /* Model */,
 			);
@@ -206,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				E94E97462815AD4500F9C310 /* MenuView.swift */,
+				E9513DB02818557800C7DD7D /* FermentablesInStockItemView.swift */,
 				E94E97472815AD4500F9C310 /* HopsInStockItemView.swift */,
 			);
 			path = MenuView;
@@ -214,6 +222,7 @@
 		E94E97482815AD4500F9C310 /* StockEditorViews */ = {
 			isa = PBXGroup;
 			children = (
+				E9513DAC281852F500C7DD7D /* FermentablesInStockEditorView.swift */,
 				E94E97492815AD4500F9C310 /* HopsInStockEditorView.swift */,
 			);
 			path = StockEditorViews;
@@ -318,10 +327,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9513DAF281854A900C7DD7D /* Repository+FermentablesInStock.swift in Sources */,
 				E94E97522815AD4500F9C310 /* Gravity.swift in Sources */,
 				E94E9771281653B900F9C310 /* FermentableType.swift in Sources */,
 				E94E97602815AD4500F9C310 /* SplashView.swift in Sources */,
 				E94E975A2815AD4500F9C310 /* BaseEntity.swift in Sources */,
+				E9513DB12818557800C7DD7D /* FermentablesInStockItemView.swift in Sources */,
 				E94E975F2815AD4500F9C310 /* HopsInStockEditorView.swift in Sources */,
 				E94E97572815AD4500F9C310 /* String+Identifiable.swift in Sources */,
 				E94E97732817059000F9C310 /* Alert.swift in Sources */,
@@ -329,6 +340,7 @@
 				E94E97532815AD4500F9C310 /* NSFont+fromFont.swift in Sources */,
 				E94E976F281652E700F9C310 /* FermentablesInStock.swift in Sources */,
 				E94E97612815AD4500F9C310 /* ContentView.swift in Sources */,
+				E9513DAD281852F500C7DD7D /* FermentablesInStockEditorView.swift in Sources */,
 				E94E97552815AD4500F9C310 /* LocalizedStringKey+string.swift in Sources */,
 				E94E976D2815DDA700F9C310 /* CGFloat+widths.swift in Sources */,
 				E94E97622815AD4500F9C310 /* BrewhouseYieldCalculatorView.swift in Sources */,
@@ -472,7 +484,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 165;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -501,7 +513,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 165;
+				CURRENT_PROJECT_VERSION = 188;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;

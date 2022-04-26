@@ -35,6 +35,33 @@ struct MenuView: View {
       }
 
       DisclosureGroup("Bestand", isExpanded: $stockDisclosed) {
+        /*DisclosureGroup(isExpanded: $fermentablesInStockDisclosed) {
+          if repository.fermentablesInStock.isEmpty {
+            Text("Kein Bestand").italic()
+          } else {
+            ForEach(repository.fermentablesInStock, id: \.id) { item in
+              NavigationLink(destination: { FermentablesInStockEditorView(item: item) }) {
+                FermentablesInStockEditorView(item: item)
+              }
+              .contextMenu(
+                ContextMenu {
+                  Button(action: { repository.delete(fermentablesInStock: item) }, label: { Text("🗑 Löschen") })
+                })
+            }
+          }
+        } label: {
+          HStack {
+            Text("Hefe")
+            Spacer()
+            NavigationLink(tag: DetailViewTag.yeastInStock, selection: $visibleDetailView) {
+             FermentablesInStockEditorView()
+            } label: {
+              Button(action: { visibleDetailView = .yeastInStock }, label: { Image(systemName: "plus.rectangle.fill") })
+                .buttonStyle(.borderless)
+            }
+          }
+        }*/
+
         DisclosureGroup(isExpanded: $hopsInStockDisclosed) {
           if repository.hopsInStock.isEmpty {
             Text("Kein Bestand").italic()
@@ -52,11 +79,45 @@ struct MenuView: View {
         } label: {
           HStack {
             Text("Hopfen")
-            NavigationLink(tag: DetailViewTag.hopsInStock, selection: $visibleDetailView) {
+            Spacer()
+            NavigationLink(tag: DetailViewTag.fermentablesInStock, selection: $visibleDetailView) {
               HopsInStockEditorView()
             } label: {
-              Button(action: { visibleDetailView = .hopsInStock }, label: { Image(systemName: "plus.rectangle.fill") })
+              Button(action: { visibleDetailView = .fermentablesInStock }, label: { Image(systemName: "plus.rectangle.fill") })
                 .buttonStyle(.borderless)
+            }
+          }
+        }
+
+        DisclosureGroup(isExpanded: $fermentablesInStockDisclosed) {
+          if repository.fermentablesInStock.isEmpty {
+            Text("Kein Bestand").italic()
+          } else {
+            ForEach(repository.fermentablesInStock, id: \.id) { item in
+              NavigationLink(destination: { FermentablesInStockEditorView(item: item) }) {
+                FermentablesInStockItemView(item: item)
+              }
+              .contextMenu(
+                ContextMenu {
+                  Button(action: { repository.delete(fermentablesInStock: item) }, label: { Text("🗑 Löschen") })
+                })
+            }
+          }
+        } label: {
+          HStack {
+            Text("Vergärbare Zutaten")
+            Spacer()
+            NavigationLink(tag: DetailViewTag.fermentablesInStock, selection: $visibleDetailView) {
+              EmptyView()
+            } label: {
+              NavigationLink(tag: DetailViewTag.yeastInStock, selection: $visibleDetailView) {
+                FermentablesInStockEditorView()
+              } label: {
+                Button(
+                  action: { visibleDetailView = .yeastInStock },
+                  label: { Image(systemName: "plus.rectangle.fill") })
+                .buttonStyle(.borderless)
+              }
             }
           }
         }
@@ -93,6 +154,10 @@ struct MenuView: View {
   private var stockDisclosed = true
   @AppStorage("menu_stock_hopsInStockDisclosed", store: .standard)
   private var hopsInStockDisclosed = true
+  @AppStorage("menu_stock_fermentablesInStockDisclosed", store: .standard)
+  private var fermentablesInStockDisclosed = true
+  @AppStorage("menu_stock_yeastInStockDisclosed", store: .standard)
+  private var yeastInStockDisclosed = true
   @AppStorage("menu_calculationsDisclosed", store: .standard)
   private var calculationsDisclosed = true
 }
