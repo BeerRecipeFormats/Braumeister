@@ -16,7 +16,7 @@ struct HopsInStockItemView: View {
       Text(String(format: "\(item.name) | \(item.amount)\(item.amountUnit) | ⍺ %.1f%%", item.alpha))
       Text("\(item.cropCountry) | \(String(item.cropYear))").font(.subheadline)
     }
-    .padding([.top, .bottom], 10)
+    .padding([.top, .bottom], 2)
   }
 
   var item: HopsInStock

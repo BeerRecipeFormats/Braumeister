@@ -25,68 +25,50 @@ struct AlcoholCalculatorView: View {
   // MARK: - Public Properties
   
   var body: some View {
-    HStack {
-      Text("mit Refraktometerkorrektur")
-        .padding(.leading, 20)
-      Spacer()
-    }
     Form {
-      Section("Stammwürze:") {
-        HStack {
-          TextField("Stammwürze", value: ogBinding(), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: .NumericInputFieldWidth)
-          Picker("", selection: ogUnitBinding()) {
-            ForEach(Gravity.allUnits, id: \.id) { unit in
-              Text(unit).tag(unit.id)
-            }
+      LazyVGrid(columns: [GridItem(alignment: .leading), GridItem(alignment: .leading)]) {
+        TextField("Stammwürze:", value: ogBinding(), formatter: numberFormatter)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+        Picker("", selection: ogUnitBinding()) {
+          ForEach(Gravity.allUnits, id: \.id) { unit in
+            Text(unit).tag(unit.id).scaledToFit()
           }
-          .frame(width: .GravityPickerWidth)
-          .padding(.leading, 10)
-          .pickerStyle(MenuPickerStyle())
         }
-      }
+        .frame(width: .GravityPickerWidth)
 
-      Section("Restextrakt:") {
-        HStack {
-          TextField("Restextrakt", value: fgBinding(), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: .NumericInputFieldWidth)
-          Text("° Brix")
-        }
+        TextField("Restextrakt:", value: fgBinding(), formatter: numberFormatter)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+        Text("°Brix")
+          .padding(.leading, 10)
       }
 
       Section("Ergebnis:") {
-        VStack(alignment: .leading) {
-          Text("Scheinbarer Restextrakt:").padding(.top, 10)
+        LazyVGrid(columns: [GridItem(alignment: .trailing), GridItem(alignment: .leading)]) {
+          Text("Scheinbarer Restextrakt:")
           Text(String(format: "%.1f °P (%.3f SG)", reS.toPlato.value, reS.value))
             .bold()
-            .padding(.bottom, 15)
-
 
           Text("Scheinbarer Vergärungsgrad:")
           Text(String(format: "%.0f%%", vgS))
             .bold()
-            .padding(.bottom, 15)
-
-
           Text("Tatsächlicher Restextrakt:")
           Text(String(format: "%.1f °P", reT.value))
             .bold()
-            .padding(.bottom, 15)
 
           Text("Tatsächlicher Vergärungsgrad:")
           Text(String(format: "%.0f%%", vgT))
             .bold()
-            .padding(.bottom, 15)
-
+          
           Text("Alkoholgehalt:")
           Text(String(format: "%.1f%% vol", alc))
             .bold()
         }
       }
+      .padding(.top, 20)
+      Spacer()
     }
-    .navigationTitle("Alkoholgehalt")
+    .padding([.leading, .trailing, .top], 20)
+    .navigationTitle("Alkoholgehalt mit Refraktometerkorrektur")
   }
 
 

@@ -27,83 +27,52 @@ struct OriginalWortCalculatorView: View {
 
   var body: some View {
     Form {
-      LazyVGrid(columns: [GridItem(alignment: .trailing), GridItem(alignment: .leading)], spacing: 10) {
-        if fromPlato {
-          TextField("Stammwürze", value: bind($plato), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
-            .onChange(of: plato) { newValue in
-              let plt = Gravity.plato(newValue)
-              brix = plt.toBrix.value
-              sg = plt.toSG.value
-            }
-        } else {
-          Text(String(format: "%.1f", plato))
-        }
-        Toggle("° Plato", isOn: $fromPlato)
-          .onChange(of: fromPlato) { newValue in
-            fromBrix = !newValue
-            fromSG = false
+      Picker(selection: $sourceUnit, label: Text("Stammwürze")) {
+        TextField("°Plato", value: $plato, formatter: numberFormatter).tag(0).disabled(sourceUnit != 0)
+          .frame(width: "°Plato 99,999999".width())
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .onChange(of: plato) { value in
+            let plt = Gravity.plato(value)
+            brix = plt.toBrix.value
+            sg = plt.toSG.value
           }
-
-        if fromBrix {
-          TextField("Stammwürze", value: bind($brix), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
-            .onChange(of: brix) { newValue in
-              let brx = Gravity.brix(newValue)
-              plato = brx.toPlato.value
-              sg = brx.toSG.value
-            }
-        } else {
-          Text(String(format: "%.1f", brix))
-        }
-        Toggle("° Brix", isOn: $fromBrix)
-          .onChange(of: fromBrix) { newValue in
-            fromSG = !newValue
-            fromPlato = false
+        TextField("°Brix", value: $brix, formatter: numberFormatter).tag(1).disabled(sourceUnit != 1)
+          .frame(width: "°Brix 99,999999".width())
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .onChange(of: brix) { value in
+            let brx = Gravity.brix(value)
+            plato = brx.toPlato.value
+            sg = brx.toSG.value
           }
-
-        if fromSG {
-          TextField("Stammwürze", value: bind($sg), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
-            .onChange(of: sg) { newValue in
-              let sg_ = Gravity.sg(newValue)
-              plato = sg_.toPlato.value
-              brix = sg_.toBrix.value
-            }
-        } else {
-          Text(String(format: "%.3f", sg))
-        }
-        Toggle("SG", isOn: $fromSG)
-          .onChange(of: fromSG) { newValue in
-            fromPlato = !newValue
-            fromBrix = false
+        TextField("SG", value: $sg, formatter: numberFormatter).tag(2).disabled(sourceUnit != 2)
+          .frame(width: "SG 99,999999".width())
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+          .onChange(of: sg) { value in
+            let _sg = Gravity.sg(value)
+            plato = _sg.toPlato.value
+            brix = _sg.toBrix.value
           }
       }
-    }
-    .navigationTitle("Stammwürzerechner")
-    .onAppear {
+      .pickerStyle(.radioGroup)
 
+      Spacer()
     }
+    .padding([.leading, .top], 20)
+    .navigationTitle("Stammwürzerechner")
   }
 
 
   // MARK: - Private Properties
 
   @State
-  private var plato: Float = 0
+  private var sourceUnit: Int = 0
+
   @State
-  private var fromPlato = true
+  private var plato: Float = 0
   @State
   private var brix: Float = 0
   @State
-  private var fromBrix = false
-  @State
   private var sg: Float = 0
-  @State
-  private var fromSG = false
 
   private var numberFormatter: NumberFormatter = {
     let formatter = NumberFormatter()
@@ -112,16 +81,5 @@ struct OriginalWortCalculatorView: View {
     formatter.allowsFloats = true
     return formatter
   }()
-
-
-  // MARK: - Private Methods
-
-  private func bind<V>(_ val: Binding<V>) -> Binding<V> {
-    return Binding {
-      return val.wrappedValue
-    } set: { newVal in
-      val.wrappedValue = newVal
-    }
-  }
 }
 

@@ -26,53 +26,40 @@ struct DilutionCalculatorView: View {
   
   var body: some View {
     Form {
-      //LazyVGrid(columns: [GridItem(alignment: .trailing), GridItem(alignment: .leading)], spacing: 10) {
-      Section("Stammwürze:") {
-        HStack {
-          TextField("Stammwürze", value: gravityBinding($og), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: .NumericInputFieldWidth)
-          Picker("", selection: gravityUnitBinding($og, $ogUnit)) {
-            ForEach(Gravity.allUnits, id: \.id) { unit in
-              Text(unit).tag(unit.id)
-            }
+      LazyVGrid(columns: [GridItem(alignment: .trailing), GridItem(alignment: .leading)], spacing: 10) {
+        TextField("Stammwürze:", value: gravityBinding($og), formatter: numberFormatter)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+        Picker("", selection: gravityUnitBinding($og, $ogUnit)) {
+          ForEach(Gravity.allUnits, id: \.id) { unit in
+            Text(unit).tag(unit.id)
           }
-          .pickerStyle(MenuPickerStyle())
-          .frame(width: .GravityPickerWidth)
-          .padding(.leading, 10)
         }
-      }
+        .frame(width: .GravityPickerWidth)
+        .pickerStyle(.menu)
+        .padding(.leading, 10)
 
-      Section("Würzemenge:") {
-        HStack {
-          TextField("Volumen", value: $volume, formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: .NumericInputFieldWidth)
-          Text("Liter")
-        }
-      }
+        TextField("Würzemenge:", value: $volume, formatter: numberFormatter)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+        Text("Liter")
+          .padding(.leading, 20)
 
-      Section("Gewünschte Stammwürze:") {
-        HStack {
-          TextField("Stammwürze", value: gravityBinding($targetOg), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: .NumericInputFieldWidth)
-          Picker("", selection: gravityUnitBinding($targetOg, $targetOgUnit)) {
-            ForEach(Gravity.allUnits, id: \.id) { unit in
-              Text(unit).tag(unit.id)
-            }
+        TextField("Gewünschte Stammwürze:", value: gravityBinding($targetOg), formatter: numberFormatter)
+          .textFieldStyle(RoundedBorderTextFieldStyle())
+        Picker("", selection: gravityUnitBinding($targetOg, $targetOgUnit)) {
+          ForEach(Gravity.allUnits, id: \.id) { unit in
+            Text(unit).tag(unit.id)
           }
-          .pickerStyle(MenuPickerStyle())
-          .frame(width: .GravityPickerWidth)
-          .padding(.leading, 10)
         }
-      }
+        .frame(width: .GravityPickerWidth)
+        .pickerStyle(.menu)
+        .padding(.leading, 10)
 
-
-      Section("Verdünnung:") {
-        Text(String(format: "%.1f Liter", fillVolume)).font(.title)
+        Text("Verdünnung:").bold()
+        Text(String(format: "%.1f Liter", fillVolume)).bold()
       }
+      Spacer()
     }
+    .padding([.horizontal, .top], 20)
     .navigationTitle("Verdünnungsrechner")
   }
 

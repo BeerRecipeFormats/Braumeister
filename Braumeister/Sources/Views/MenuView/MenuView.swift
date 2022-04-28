@@ -18,7 +18,7 @@
 //  limitations under the License.
 //
 
-import SwiftUI
+import PureSwiftUI
 
 struct MenuView: View {
 
@@ -30,7 +30,38 @@ struct MenuView: View {
         Text("Keine Rezepte vorhanden!").italic()
       }
 
+      DisclosureGroup("Sude", isExpanded: $brewsDisclosed) {
+        Text("Keine Sude vorhanden!").italic()
+      }
+
       DisclosureGroup("Bestand", isExpanded: $stockDisclosed) {
+        DisclosureGroup(isExpanded: $yeastInStockDisclosed) {
+          if repository.yeastInStock.isEmpty {
+            Text("Kein Bestand").italic()
+          } else {
+            ForEach(repository.yeastInStock, id: \.id) { item in
+              NavigationLink(destination: { YeastInStockEditorView(item: item) }) {
+                YeastInStockItemView(item: item)
+              }
+              .contextMenu(
+                ContextMenu {
+                  Button(action: { repository.delete(yeastInStock: item) }, label: { Text("🗑 Löschen") })
+                })
+            }
+          }
+        } label: {
+          HStack {
+            Text("Hefe")
+            Spacer()
+            NavigationLink(tag: DetailViewTag.yeastInStock, selection: $visibleDetailView) {
+              YeastInStockEditorView()
+            } label: {
+              Button(action: { visibleDetailView = .yeastInStock }, label: { Image(systemName: "plus.rectangle.fill") })
+                .buttonStyle(.borderless)
+            }
+          }
+        }
+
         DisclosureGroup(isExpanded: $hopsInStockDisclosed) {
           if repository.hopsInStock.isEmpty {
             Text("Kein Bestand").italic()
@@ -39,14 +70,54 @@ struct MenuView: View {
               NavigationLink(destination: { HopsInStockEditorView(item: item) }) {
                 HopsInStockItemView(item: item)
               }
+              .contextMenu(
+                ContextMenu {
+                  Button(action: { repository.delete(hopsInStock: item) }, label: { Text("🗑 Löschen") })
+                })
             }
-            .onDelete(perform: self.deleteHopsInStock)
           }
         } label: {
           HStack {
             Text("Hopfen")
-            NavigationLink(isActive: $createHopsInStock, destination: { HopsInStockEditorView() }) {
-              Button(action: { createHopsInStock = true }, label: { Image(systemName: "plus.rectangle.fill") })
+            Spacer()
+            NavigationLink(tag: DetailViewTag.hopsInStock, selection: $visibleDetailView) {
+              HopsInStockEditorView()
+            } label: {
+              Button(action: { visibleDetailView = .hopsInStock }, label: { Image(systemName: "plus.rectangle.fill") })
+                .buttonStyle(.borderless)
+            }
+          }
+        }
+
+        DisclosureGroup(isExpanded: $fermentablesInStockDisclosed) {
+          if repository.fermentablesInStock.isEmpty {
+            Text("Kein Bestand").italic()
+          } else {
+            ForEach(repository.fermentablesInStock, id: \.id) { item in
+              NavigationLink(destination: { FermentablesInStockEditorView(item: item) }) {
+                FermentablesInStockItemView(item: item)
+              }
+              .contextMenu(
+                ContextMenu {
+                  Button(action: { repository.delete(fermentablesInStock: item) }, label: { Text("🗑 Löschen") })
+                })
+            }
+          }
+        } label: {
+          HStack {
+            Text("Vergärbare Zutaten")
+            Spacer()
+            NavigationLink(tag: DetailViewTag.fermentablesInStock, selection: $visibleDetailView) {
+              EmptyView()
+            } label: {
+              NavigationLink(tag: DetailViewTag.fermentablesInStock, selection: $visibleDetailView) {
+                FermentablesInStockEditorView()
+              } label: {
+                Button(
+                  action: { visibleDetailView = .fermentablesInStock },
+                  label: { Image(systemName: "plus.rectangle.fill") })
+                .buttonStyle(.borderless)
+              }
             }
           }
         }
@@ -59,6 +130,7 @@ struct MenuView: View {
         NavigationLink("Verdünnungsrechner", destination: DilutionCalculatorView())
       }
     }
+    .listStyle(.sidebar)
     .navigationTitle("Braumeister")
   }
 
@@ -71,27 +143,21 @@ struct MenuView: View {
   @State
   private var createHopsInStock = false
 
+  @State
+  private var visibleDetailView: DetailViewTag?
+
   @AppStorage("menu_recipesDisclosed", store: .standard)
   private var recipesDisclosed = false
+  @AppStorage("menu_brewsDisclosed", store: .standard)
+  private var brewsDisclosed = false
   @AppStorage("menu_stockDisclosed", store: .standard)
   private var stockDisclosed = true
   @AppStorage("menu_stock_hopsInStockDisclosed", store: .standard)
   private var hopsInStockDisclosed = true
+  @AppStorage("menu_stock_fermentablesInStockDisclosed", store: .standard)
+  private var fermentablesInStockDisclosed = true
+  @AppStorage("menu_stock_yeastInStockDisclosed", store: .standard)
+  private var yeastInStockDisclosed = true
   @AppStorage("menu_calculationsDisclosed", store: .standard)
   private var calculationsDisclosed = true
-
-
-  // MARK: - Private Methods
-
-  private func deleteHopsInStock(_ indexSet: IndexSet?) {
-    if let indexSet = indexSet {
-      Task {
-        do {
-          try await repository.delete(hopsInStock: indexSet)
-        } catch {
-          // TODO error handling
-        }
-      }
-    }
-  }
 }

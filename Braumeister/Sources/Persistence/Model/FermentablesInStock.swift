@@ -1,8 +1,8 @@
 //
-//  HopsInStock.swift
+//  FermentablesInStock.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 24.04.22.
+//  Created by Thomas Bonk on 25.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,11 +21,11 @@
 import FluentSQLiteDriver
 import Foundation
 
-class HopsInStock: BaseEntity, Model {
+class FermentablesInStock: BaseEntity, Model {
 
   // MARK: - Model
 
-  static var schema: String = "hops_in_stock"
+  static var schema: String = "fermentables_in_stock"
 
 
   // MARK: - Properties
@@ -39,24 +39,18 @@ class HopsInStock: BaseEntity, Model {
 
   @Field(key: "name")
   var name: String
+  @Enum(key: "type")
+  var `type`: FermentableType
   @Field(key: "amount")
-  var amount: UInt16
-  @Field(key: "amount_unit")
-  var amountUnit: String
-  @Field(key: "crop_country")
-  var cropCountry: String
-  @Field(key: "crop_year")
-  var cropYear: UInt16
-  @Enum(key: "form")
-  var form: HopForm
-  @Field(key: "alpha")
-  var alpha: Float
-  @OptionalField(key: "best_before")
-  var bestBefore: Date?
+  var amount: Float             // amount in kg
+  @OptionalField(key: "color")
+  var color: Float?             // color in EBC
+  @OptionalField(key: "origin")
+  var origin: String?
+  @OptionalField(key: "max_in_batch")
+  var maxInBatch: UInt8?        // The recommended maximum percentage (by weight) this ingredient should represent in a batch of beer.
   @OptionalField(key: "notes")
   var notes: String?
-  @OptionalField(key: "alternatives")
-  var alternatives: String?
 
 
   // MARK: - Initialization
@@ -68,39 +62,35 @@ class HopsInStock: BaseEntity, Model {
   init(id: UUID? = nil, name: String) {
     self.id = id
     self.name = name
+    self.type = .grain
     self.amount = 0
-    self.amountUnit = "g"
-    self.cropCountry = "<Herkunftsland>"
-    self.cropYear = 1970
-    self.form = .pellets
-    self.alpha = 0
+    self.color = 0
+    self.origin = ""
+    self.maxInBatch = 0
   }
 }
 
-extension HopsInStock {
+extension FermentablesInStock {
   struct V1: Migration {
-    let name = "HopsInStock_V1"
-    
+    let name = "FermentablesInStock_V1"
+
     func prepare(on database: Database) -> EventLoopFuture<Void> {
-      return database.schema(HopsInStock.schema)
+      return database.schema(FermentablesInStock.schema)
         .id()
         .field("created_at", .datetime, .required)
         .field("modified_at", .datetime, .required)
         .field("name", .string, .required)
-        .field("amount", .uint16, .required)
-        .field("amount_unit", .string, .required)
-        .field("crop_country", .string, .required)
-        .field("crop_year", .uint16, .required)
-        .field("form", .string, .required)
-        .field("alpha", .float, .required)
-        .field("best_before", .date)
+        .field("type", .string, .required)
+        .field("amount", .float, .required)
+        .field("color", .float)
+        .field("origin", .string)
+        .field("max_in_batch", .uint8)
         .field("notes", .string)
-        .field("alternatives", .string)
         .create()
     }
 
     func revert(on database: Database) -> EventLoopFuture<Void> {
-      return database.schema(HopsInStock.schema).delete()
+      return database.schema(FermentablesInStock.schema).delete()
     }
   }
 }

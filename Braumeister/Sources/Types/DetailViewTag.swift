@@ -1,8 +1,8 @@
 //
-//  String+width.swift
+//  DetailViewTag.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 15.04.22.
+//  Created by Thomas Bonk on 26.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,13 +19,20 @@
 //
 
 import Foundation
-import SwiftUI
 
-extension String {
-  
-  func width(for font: Font = .body) -> CGFloat {
-    let fontAttributes = [NSAttributedString.Key.font: NSFont.from(font: font)]
-    let size = self.size(withAttributes: fontAttributes)
-    return size.width
+enum DetailViewTag: String, Hashable, Identifiable {
+
+  // MARK: - Cases
+
+  case empty                = "empty"
+  case hopsInStock          = "HopsInStockEditorView"
+  case fermentablesInStock  = "FermentablesInStock"
+  case yeastInStock         = "YeastInStock"
+
+
+  // MARK: - Identifiable
+
+  var id: String {
+    return self.rawValue
   }
 }

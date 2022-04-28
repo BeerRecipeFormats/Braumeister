@@ -27,41 +27,31 @@ struct BrewhouseYieldCalculatorView: View {
   var body: some View {
     Form {
       LazyVGrid(columns: [GridItem(alignment: .trailing), GridItem(alignment: .leading)], spacing: 10) {
-        Text("Schüttungsmenge:")
-        HStack {
-          TextField("Stammwürze", value: bind($grainBill), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: .NumericInputFieldWidth)
-          Text("kg")
-        }
+        TextField("Schüttung:", value: bind($grainBill), formatter: numberFormatter)
+          .textFieldStyle(.roundedBorder)
+        Text("kg").padding(.leading, 10)
 
-        Text("Ausschlagvolumen:")
-        HStack {
-          TextField("Ausschlagvolumen", value: bind($wortVolume), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: .NumericInputFieldWidth)
-          Text("Liter")
-        }
+        TextField("Ausschlagvolumen:", value: bind($wortVolume), formatter: numberFormatter)
+          .textFieldStyle(.roundedBorder)
+        Text("Liter").padding(.leading, 10)
 
-        Text("Stammwürze:")
-        HStack {
-          TextField("Stammwürze", value: ogBinding(), formatter: numberFormatter)
-            .textFieldStyle(RoundedBorderTextFieldStyle())
-            .frame(width: "99.9".width() * 2)
-          Picker("", selection: ogUnitBinding()) {
-            ForEach(Gravity.allUnits, id: \.id) { unit in
-              Text(unit).tag(unit.id)
-            }
+        TextField("Stammwürze:", value: ogBinding(), formatter: numberFormatter)
+          .textFieldStyle(.roundedBorder)
+        Picker("", selection: ogUnitBinding()) {
+          ForEach(Gravity.allUnits, id: \.id) { unit in
+            Text(unit).tag(unit.id)
           }
-          .pickerStyle(MenuPickerStyle())
-          .frame(width: .GravityPickerWidth)
-          .padding(.leading, 10)
         }
+        .frame(width: .GravityPickerWidth)
+        .pickerStyle(.menu)
 
-        Text("Sudhausausbeute:").font(.title)
-        Text(String(format: "%.0f%%", brewhouseYield)).font(.title)
+        Text("Sudhausausbeute:").bold()
+        Text(String(format: "%.0f%%", brewhouseYield)).bold()
       }
+
+      Spacer()
     }
+    .padding([.leading, .trailing, .top], 20)
     .navigationTitle("Sudhausausbeute")
   }
 

@@ -1,8 +1,8 @@
 //
-//  String+width.swift
+//  CGFloat+widths.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 15.04.22.
+//  Created by Thomas Bonk on 24.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,13 +19,7 @@
 //
 
 import Foundation
-import SwiftUI
 
-extension String {
-  
-  func width(for font: Font = .body) -> CGFloat {
-    let fontAttributes = [NSAttributedString.Key.font: NSFont.from(font: font)]
-    let size = self.size(withAttributes: fontAttributes)
-    return size.width
-  }
+extension CGFloat {
+  static let GravityPickerWidth = Gravity.allUnits.max()!.width() * 2
 }

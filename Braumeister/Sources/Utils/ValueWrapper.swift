@@ -1,8 +1,8 @@
 //
-//  String+width.swift
+//  ValueWrapper.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 15.04.22.
+//  Created by Thomas Bonk on 25.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,13 +19,18 @@
 //
 
 import Foundation
-import SwiftUI
 
-extension String {
-  
-  func width(for font: Font = .body) -> CGFloat {
-    let fontAttributes = [NSAttributedString.Key.font: NSFont.from(font: font)]
-    let size = self.size(withAttributes: fontAttributes)
-    return size.width
+class ValueWrapper<Value>: ObservableObject {
+
+  // MARK: - Public Properties
+
+  @Published
+  var value: Value?
+
+
+  // MARK: - Initialization
+
+  init(value: Value? = nil) {
+    self.value = value
   }
 }

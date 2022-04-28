@@ -1,8 +1,8 @@
 //
-//  HopsInStockEditorView.swift
+//  FermentablesInStockEditorView.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 24.04.22.
+//  Created by Thomas Bonk on 26.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -20,81 +20,94 @@
 
 import SwiftUI
 
-struct HopsInStockEditorView: View {
-  
+struct FermentablesInStockEditorView: View {
+
   // MARK: - Public Properties
-  
+
   var body: some View {
     GeometryReader { geometry in
       Form {
-        TextField(text: $item.name, prompt: Text("Hopfenname"), label: { Text("Hopfenname:") })
+        TextField(text: $item.name, prompt: Text("Bezeichnung"), label: { Text("Bezeichnung:") })
           .textFieldStyle(.roundedBorder)
           .onSubmit(self.updateDatabase)
-        
+
+        Picker("Typ:", selection: Binding(
+          get: {
+            return item.type
+          }, set: { value in
+            item.type = value
+            self.updateDatabase()
+          })) {
+            ForEach(FermentableType.allCases, id: \.self) { type in
+            Text(type.localizedName).tag(type)
+          }
+        }
+        .pickerStyle(.menu)
+
         HStack {
           TextField(
-            value: $item.amount,
-            format: IntegerFormatStyle(),
+            value: Binding(
+              get: {
+                return item.amount
+              }, set: { value in
+                item.amount = value
+                self.updateDatabase()
+              }),
+            format: FloatingPointFormatStyle(),
             prompt: Text("Menge"),
             label: { Text("Menge:") })
           .textFieldStyle(.roundedBorder)
           .onSubmit(self.updateDatabase)
-          Text("g")
+          Text("kg")
         }
-        
-        Picker("Hopfenform:", selection: Binding(get: {
-          item.form
-        }, set: { value in
-          item.form = value
-          self.updateDatabase()
-        })) {
-          ForEach(HopForm.allCases, id: \.self) { form in
-            Text(form.localizedName).tag(form)
-          }
-        }
-        .pickerStyle(.menu)
-        
+
         HStack {
           TextField(
-            value: $item.alpha,
+            value: Binding(
+              get: {
+                return item.color ?? 0
+              }, set: { value in
+                item.color = value
+                self.updateDatabase()
+              }),
             format: FloatingPointFormatStyle(),
-            prompt: Text("Alpha-Säure"),
-            label: { Text("Alpha-Säure:") })
+            prompt: Text("Farbe"),
+            label: { Text("Farbe:") })
+          .textFieldStyle(.roundedBorder)
+          .onSubmit(self.updateDatabase)
+          Text("EBC")
+        }
+
+        TextField(
+          text: Binding(
+            get: {
+              item.origin ?? ""
+            }, set: { value in
+              item.origin = value
+              self.updateDatabase()
+            }),
+          prompt: Text("Herkunft"),
+          label: { Text("Herkunft:") })
+        .textFieldStyle(.roundedBorder)
+        .onSubmit(self.updateDatabase)
+
+        HStack {
+          TextField(
+            value: Binding(
+              get: {
+                item.maxInBatch ?? 0
+              }, set: { value in
+                item.maxInBatch = value
+                self.updateDatabase()
+              }),
+            format: IntegerFormatStyle(),
+            prompt: Text("Zugabe"),
+            label: { Text("Zugabe:") })
           .textFieldStyle(.roundedBorder)
           .onSubmit(self.updateDatabase)
           Text("%")
         }
-        
-        TextField(text: $item.cropCountry, prompt: Text("Herkunftsland"), label: { Text("Herkunftsland:") })
-          .textFieldStyle(.roundedBorder)
-          .onSubmit(self.updateDatabase)
-        
-        TextField(
-          value: $item.cropYear,
-          format: IntegerFormatStyle().grouping(IntegerFormatStyle<UInt16>.Configuration.Grouping.never),
-          prompt: Text("Erntejahr"),
-          label: { Text("Erntejahr:") })
-        .textFieldStyle(.roundedBorder)
-        .onSubmit(self.updateDatabase)
-        
-        DatePicker("MHD:", selection: Binding(get: {
-          item.bestBefore ?? Date()
-        }, set: { date in
-          item.bestBefore = date
-          self.updateDatabase()
-        }), displayedComponents: .date)
-        
-        TextField(
-          text: Binding(get: {
-            item.alternatives ?? ""
-          }, set: { text in
-            item.alternatives = text
-            self.updateDatabase()
-          }),
-          prompt: Text("Alternativen"),
-          label: { Text("Alternativen:") })
-        .textFieldStyle(.roundedBorder)
-        
+
         GeometryReader { editorGeometry in
           TextEditor(text: Binding(get: {
             item.notes ?? ""
@@ -110,43 +123,45 @@ struct HopsInStockEditorView: View {
           .frame(height: editorGeometry.size.height - 20)
         }
       }
-      .frame(height: geometry.size.height)
     }
     .onDisappear(perform: self.updateDatabase)
     .padding([.leading, .top], 20)
     .padding(.trailing, 100)
-    .navigationTitle("Hopfenbestand bearbeiten")
+    .navigationTitle("Vergärbare Zutat bearbeiten")
   }
-  
-  
+
+
   // MARK: - Private Properties
-  
+
   @State
-  private var item: HopsInStock
-  
+  private var item: FermentablesInStock
+
+  @State
+  private var textEditorHeight: CGFloat = 400
+
   @EnvironmentObject
   private var repository: Repository
-  
-  
+
+
   // MARK: - Initialization
-  
-  init(item: HopsInStock? = nil) {
+
+  init(item: FermentablesInStock? = nil) {
     if let itm = item {
       self.item = itm
     } else {
-      self.item = HopsInStock(name: "Neuer Hopfenbestand")
+      self.item = FermentablesInStock(name: "Neuer Bestand")
     }
   }
-  
-  
+
+
   // MARK: - Private Methods
-  
+
   private func updateDatabase() {
     do {
       if self.item.id == nil {
-        try repository.create(hopsInStock: self.item)
+        try repository.create(fermentablesInStock: self.item)
       }
-      try repository.save(hopsInStock: item)
+      try repository.save(fermentablesInStock: item)
     } catch {
       errorAlert(message: "Fehler beim Speichern der Daten.", error: error)
     }

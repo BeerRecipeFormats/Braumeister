@@ -21,6 +21,7 @@
 import Fluent
 import FluentSQLiteDriver
 import Foundation
+import Vapor
 
 class Repository: ObservableObject {
 
@@ -57,10 +58,22 @@ class Repository: ObservableObject {
     databases.default(to: .sqlite)
 
     do {
-      try HopsInStock.Fly().prepare(on: database).wait()
-    }
-    catch {
-      // Handle Error
+      let migrations = Migrations()
+
+      migrations.add(HopsInStock.V1())
+      migrations.add(FermentablesInStock.V1())
+      migrations.add(YeastInStock.V1())
+      migrations.add(YeastInStock.V2())
+
+      let migrator = Migrator(databases: databases, migrations: migrations, logger: logger, on: eventLoopGroup.next())
+
+      try migrator.setupIfNeeded().flatMap {
+        migrator.prepareBatch()
+      }.wait()
+    } catch {
+      fatalErrorAlert(
+        message: "Fehler beim Initialisieren der Datenbank. Braumeister wird beendet.",
+        error: error)
     }
   }
 }

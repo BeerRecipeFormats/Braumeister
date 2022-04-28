@@ -1,8 +1,8 @@
 //
-//  String+width.swift
+//  YeastForm.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 15.04.22.
+//  Created by Thomas Bonk on 27.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,11 +21,31 @@
 import Foundation
 import SwiftUI
 
-extension String {
-  
-  func width(for font: Font = .body) -> CGFloat {
-    let fontAttributes = [NSAttributedString.Key.font: NSFont.from(font: font)]
-    let size = self.size(withAttributes: fontAttributes)
-    return size.width
+enum YeastForm: String, Codable, RawRepresentable, CaseIterable {
+
+  // MARK: - Cases
+
+  case liquid = "liquid"
+  case dry = "dry"
+  case slant = "slant"
+  case culture = "culture"
+
+
+  // MARK: - Properties
+
+  var localizedName: String {
+    switch self {
+      case .liquid:
+        return LocalizedStringKey("Flüssighefe").string
+
+      case .dry:
+        return LocalizedStringKey("Trockenhefe").string
+
+      case .slant:
+        return LocalizedStringKey("Vermehrte Hefe").string
+
+      case .culture:
+        return LocalizedStringKey("Hefekultur").string
+    }
   }
 }
