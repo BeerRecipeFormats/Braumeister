@@ -124,9 +124,6 @@ struct HopsInStockEditorView: View {
   @State
   private var item: HopsInStock
   
-  @State
-  private var textEditorHeight: CGFloat = 400
-  
   @EnvironmentObject
   private var repository: Repository
   

@@ -72,7 +72,7 @@ class FermentablesInStock: BaseEntity, Model {
 
 extension FermentablesInStock {
   struct V1: Migration {
-    let name = "V1"
+    let name = "FermentablesInStock_V1"
 
     func prepare(on database: Database) -> EventLoopFuture<Void> {
       return database.schema(FermentablesInStock.schema)

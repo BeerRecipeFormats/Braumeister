@@ -31,13 +31,14 @@ struct FermentablesInStockEditorView: View {
           .textFieldStyle(.roundedBorder)
           .onSubmit(self.updateDatabase)
 
-        Picker("Typ:", selection: Binding(get: {
-          item.type
-        }, set: { value in
-          item.type = value
-          self.updateDatabase()
-        })) {
-          ForEach(FermentableType.allCases, id: \.self) { type in
+        Picker("Typ:", selection: Binding(
+          get: {
+            return item.type
+          }, set: { value in
+            item.type = value
+            self.updateDatabase()
+          })) {
+            ForEach(FermentableType.allCases, id: \.self) { type in
             Text(type.localizedName).tag(type)
           }
         }
@@ -47,7 +48,7 @@ struct FermentablesInStockEditorView: View {
           TextField(
             value: Binding(
               get: {
-                item.amount ?? 0
+                return item.amount
               }, set: { value in
                 item.amount = value
                 self.updateDatabase()
@@ -64,7 +65,7 @@ struct FermentablesInStockEditorView: View {
           TextField(
             value: Binding(
               get: {
-                item.color ?? 0
+                return item.color ?? 0
               }, set: { value in
                 item.color = value
                 self.updateDatabase()

@@ -62,6 +62,7 @@ class Repository: ObservableObject {
 
       migrations.add(HopsInStock.V1())
       migrations.add(FermentablesInStock.V1())
+      migrations.add(YeastInStock.V1())
 
       let migrator = Migrator(databases: databases, migrations: migrations, logger: logger, on: eventLoopGroup.next())
 

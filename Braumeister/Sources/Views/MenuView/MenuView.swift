@@ -35,17 +35,17 @@ struct MenuView: View {
       }
 
       DisclosureGroup("Bestand", isExpanded: $stockDisclosed) {
-        /*DisclosureGroup(isExpanded: $fermentablesInStockDisclosed) {
-          if repository.fermentablesInStock.isEmpty {
+        DisclosureGroup(isExpanded: $yeastInStockDisclosed) {
+          if repository.yeastInStock.isEmpty {
             Text("Kein Bestand").italic()
           } else {
-            ForEach(repository.fermentablesInStock, id: \.id) { item in
-              NavigationLink(destination: { FermentablesInStockEditorView(item: item) }) {
-                FermentablesInStockEditorView(item: item)
+            ForEach(repository.yeastInStock, id: \.id) { item in
+              NavigationLink(destination: { YeastInStockEditorView(item: item) }) {
+                YeastInStockItemView(item: item)
               }
               .contextMenu(
                 ContextMenu {
-                  Button(action: { repository.delete(fermentablesInStock: item) }, label: { Text("🗑 Löschen") })
+                  Button(action: { repository.delete(yeastInStock: item) }, label: { Text("🗑 Löschen") })
                 })
             }
           }
@@ -54,13 +54,13 @@ struct MenuView: View {
             Text("Hefe")
             Spacer()
             NavigationLink(tag: DetailViewTag.yeastInStock, selection: $visibleDetailView) {
-             FermentablesInStockEditorView()
+              YeastInStockEditorView()
             } label: {
               Button(action: { visibleDetailView = .yeastInStock }, label: { Image(systemName: "plus.rectangle.fill") })
                 .buttonStyle(.borderless)
             }
           }
-        }*/
+        }
 
         DisclosureGroup(isExpanded: $hopsInStockDisclosed) {
           if repository.hopsInStock.isEmpty {
@@ -80,10 +80,10 @@ struct MenuView: View {
           HStack {
             Text("Hopfen")
             Spacer()
-            NavigationLink(tag: DetailViewTag.fermentablesInStock, selection: $visibleDetailView) {
+            NavigationLink(tag: DetailViewTag.hopsInStock, selection: $visibleDetailView) {
               HopsInStockEditorView()
             } label: {
-              Button(action: { visibleDetailView = .fermentablesInStock }, label: { Image(systemName: "plus.rectangle.fill") })
+              Button(action: { visibleDetailView = .hopsInStock }, label: { Image(systemName: "plus.rectangle.fill") })
                 .buttonStyle(.borderless)
             }
           }
@@ -110,11 +110,11 @@ struct MenuView: View {
             NavigationLink(tag: DetailViewTag.fermentablesInStock, selection: $visibleDetailView) {
               EmptyView()
             } label: {
-              NavigationLink(tag: DetailViewTag.yeastInStock, selection: $visibleDetailView) {
+              NavigationLink(tag: DetailViewTag.fermentablesInStock, selection: $visibleDetailView) {
                 FermentablesInStockEditorView()
               } label: {
                 Button(
-                  action: { visibleDetailView = .yeastInStock },
+                  action: { visibleDetailView = .fermentablesInStock },
                   label: { Image(systemName: "plus.rectangle.fill") })
                 .buttonStyle(.borderless)
               }
