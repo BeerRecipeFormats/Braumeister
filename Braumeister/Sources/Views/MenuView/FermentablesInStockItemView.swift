@@ -16,7 +16,7 @@ struct FermentablesInStockItemView: View {
       Text("\(item.type.localizedName)").font(.subheadline)
       Text(String(format:"\(item.name) | %.2f kg", item.amount))
     }
-    .padding([.top, .bottom], 4)
+    .padding([.top, .bottom], 2)
   }
 
   var item: FermentablesInStock

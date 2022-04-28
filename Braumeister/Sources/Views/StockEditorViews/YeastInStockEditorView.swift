@@ -32,6 +32,14 @@ struct YeastInStockEditorView: View {
             .textFieldStyle(.roundedBorder)
             .onSubmit(self.updateDatabase)
 
+          Picker("Hefetyp:", selection: $item.fermentation) {
+            ForEach(YeastFermentation.allCases, id: \.self) { ferm in
+              Text(ferm.localizedName).tag(ferm)
+            }
+          }
+          .pickerStyle(.menu)
+          .onSubmit(self.updateDatabase)
+
           Picker("Hefeform:", selection: Binding(get: {
             item.form
           }, set: { value in
@@ -131,7 +139,9 @@ struct YeastInStockEditorView: View {
             label: { Text("Alkoholtoleranz:") })
           .textFieldStyle(.roundedBorder)
           .onSubmit(self.updateDatabase)
+        }
 
+        Group {
           TextField(
             text: Binding(
               get: {
@@ -144,9 +154,7 @@ struct YeastInStockEditorView: View {
             label: { Text("Hefestamm:") })
           .textFieldStyle(.roundedBorder)
           .onSubmit(self.updateDatabase)
-        }
 
-        Group {
           Picker("Ausflockung:", selection: Binding(
             get: {
               return item.flocculation

@@ -1,8 +1,8 @@
 //
-//  YeastInStockItemView.swift
+//  YeastFermentation.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 27.04.22.
+//  Created by Thomas Bonk on 28.04.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,21 +18,27 @@
 //  limitations under the License.
 //
 
+import Foundation
 import SwiftUI
 
-struct YeastInStockItemView: View {
+enum YeastFermentation: String, Codable, RawRepresentable, CaseIterable {
 
-  // MARK: - Public Properties
+  // MARK: - Cases
 
-  var body: some View {
-    VStack(alignment: .leading) {
-      Text("\(item.form.localizedName) | \(item.fermentation.localizedName)").font(.subheadline)
-      Text("\(item.name) (\(item.productId) | \(item.amount) \(item.amountUnit)")
+  case topFermented = "topFermented"
+  case bottomFermented = "bottomFermented"
+
+
+  // MARK: - Properties
+
+  var localizedName: String {
+    switch self {
+      case .topFermented:
+        return LocalizedStringKey("obergärig").string
+
+      case .bottomFermented:
+        return LocalizedStringKey("untergärig").string
     }
-    .padding([.top, .bottom], 2)
   }
-
-  @State
-  var item: YeastInStock
 }
 

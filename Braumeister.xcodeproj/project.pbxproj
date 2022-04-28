@@ -48,6 +48,7 @@
 		E960955B28194E5600D6A6CD /* Repository+YeastInStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960955A28194E5600D6A6CD /* Repository+YeastInStock.swift */; };
 		E960955D28194EF900D6A6CD /* YeastInStockEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E960955C28194EF900D6A6CD /* YeastInStockEditorView.swift */; };
 		E9B06A80281882620055F483 /* YeastInStock.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9B06A7F281882620055F483 /* YeastInStock.swift */; };
+		E9BB68EF281A58FD0071A924 /* YeastFermentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BB68EE281A58FD0071A924 /* YeastFermentation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -91,6 +92,7 @@
 		E960955A28194E5600D6A6CD /* Repository+YeastInStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Repository+YeastInStock.swift"; sourceTree = "<group>"; };
 		E960955C28194EF900D6A6CD /* YeastInStockEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeastInStockEditorView.swift; sourceTree = "<group>"; };
 		E9B06A7F281882620055F483 /* YeastInStock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeastInStock.swift; sourceTree = "<group>"; };
+		E9BB68EE281A58FD0071A924 /* YeastFermentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YeastFermentation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 				E94E97342815AD4500F9C310 /* HopForm.swift */,
 				E94D0B7C2817DB0C00D97E7E /* DetailViewTag.swift */,
 				E96095542819018400D6A6CD /* YeastForm.swift */,
+				E9BB68EE281A58FD0071A924 /* YeastFermentation.swift */,
 				E9609556281902CC00D6A6CD /* Flocculation.swift */,
 			);
 			path = Types;
@@ -346,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9513DAF281854A900C7DD7D /* Repository+FermentablesInStock.swift in Sources */,
+				E9BB68EF281A58FD0071A924 /* YeastFermentation.swift in Sources */,
 				E94E97522815AD4500F9C310 /* Gravity.swift in Sources */,
 				E94E9771281653B900F9C310 /* FermentableType.swift in Sources */,
 				E94E97602815AD4500F9C310 /* SplashView.swift in Sources */,
@@ -508,7 +512,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 245;
+				CURRENT_PROJECT_VERSION = 253;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -537,7 +541,7 @@
 				CODE_SIGN_ENTITLEMENTS = Braumeister/Braumeister.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 245;
+				CURRENT_PROJECT_VERSION = 253;
 				DEVELOPMENT_ASSET_PATHS = "\"Braumeister/Preview Content\"";
 				DEVELOPMENT_TEAM = GQE994U6EG;
 				ENABLE_HARDENED_RUNTIME = YES;

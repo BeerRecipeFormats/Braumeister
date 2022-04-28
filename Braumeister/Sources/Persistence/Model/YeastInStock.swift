@@ -41,6 +41,8 @@ class YeastInStock : BaseEntity, Model {
   var name: String
   @Enum(key: "form")
   var form: YeastForm
+  @Enum(key: "fermentation")
+  var fermentation: YeastFermentation
   @Field(key: "amount")
   var amount: UInt16
   @Field(key: "amount_unit")
@@ -79,6 +81,7 @@ class YeastInStock : BaseEntity, Model {
     self.id = id
     self.name = name
     self.form = .liquid
+    self.fermentation = .topFermented
     self.bestBefore = Date()
     self.amount = 0
     self.amountUnit = "g"
@@ -120,6 +123,20 @@ extension YeastInStock {
         .field("best_for", .string)
         .field("notes", .string)
         .create()
+    }
+
+    func revert(on database: Database) -> EventLoopFuture<Void> {
+      return database.schema(YeastInStock.schema).delete()
+    }
+  }
+
+  struct V2: Migration {
+    let name = "YeastInStock_V2"
+
+    func prepare(on database: Database) -> EventLoopFuture<Void> {
+      return database.schema(YeastInStock.schema)
+        .field("fermentation", .string, .sql(.default(YeastFermentation.topFermented.rawValue)))
+        .update()
     }
 
     func revert(on database: Database) -> EventLoopFuture<Void> {
