@@ -71,7 +71,7 @@ struct HopsInStockEditorView: View {
         
         TextField(
           value: $item.cropYear,
-          format: IntegerFormatStyle.number,
+          format: IntegerFormatStyle().grouping(IntegerFormatStyle<UInt16>.Configuration.Grouping.never),
           prompt: Text("Erntejahr"),
           label: { Text("Erntejahr:") })
         .textFieldStyle(.roundedBorder)

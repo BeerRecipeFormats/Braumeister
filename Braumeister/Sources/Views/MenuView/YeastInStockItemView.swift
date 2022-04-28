@@ -27,7 +27,7 @@ struct YeastInStockItemView: View {
   var body: some View {
     VStack(alignment: .leading) {
       Text("\(item.form.localizedName)").font(.subheadline)
-      Text(String(format:"\(item.name) | %.2f \(item.amountUnit)", item.amount))
+      Text("\(item.name) | \(item.amount) \(item.amountUnit)")
     }
     .padding([.top, .bottom], 4)
   }
