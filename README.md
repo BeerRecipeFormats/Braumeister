@@ -1,3 +1,3 @@
 # Braumeister
 
-A companion app for home brewers.
+A description of this package.

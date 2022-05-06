@@ -1,8 +1,8 @@
 //
-//  BraumeisterApp.swift
+//  MainPage.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 14.04.22.
+//  Created by Thomas Bonk on 06.05.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -18,17 +18,14 @@
 //  limitations under the License.
 //
 
-import SwiftUI
+import Foundation
+import SwiftWebUI
 
-@main
-struct BraumeisterApp: App {
-
+struct MainPage: View {
+  
   // MARK: - Public Properties
   
-  var body: some Scene {
-    WindowGroup {
-      ContentView()
-        .environmentObject(Repository())
-    }
+  var body: some View {
+    Text("Hello World!")
   }
 }
