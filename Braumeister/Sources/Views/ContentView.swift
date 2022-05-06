@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 14.04.22.
+//  Created by Thomas Bonk on 06.05.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -22,67 +22,22 @@ import SwiftUI
 
 struct ContentView: View {
 
-  // MARK: - Public View
-
+  // MARK: - Public Properties
+  
   var body: some View {
     NavigationView {
-      MenuView()
-      SplashView()
+      List {
+        NavigationLink("Alkoholgehalt")         { AlcoholCalculationView() }
+        NavigationLink("Verdünnungsrechner")    { DilutionCalculationView() }
+      }
+      .listStyle(.sidebar)
+      .navigationTitle("Braumeister")
     }
-    .sheet(
-      isPresented: $showAlert,
-      onDismiss: {
-        data.value?.dismissCallback()
-      }, content: {
-        AlertView(
-          alertType: data.value?.type ?? .information,
-          message: data.value?.message ?? "",
-          error: data.value?.error)
-      })
-    .onDisappear(perform: deregisterFromAlertNotification)
   }
+}
 
-
-  // MARK: - Private Properties
-
-  @State
-  private var showAlert = false
-
-  @State
-  private var observer: NSObject!
-
-  @ObservedObject
-  private var data: ValueWrapper<AlertData> = ValueWrapper()
-
-
-  // MARK: - Initialization
-
-  init() {
-    registerForAlertNotification()
-  }
-
-
-  // MARK: - Private Methods
-
-  private func registerForAlertNotification() {
-    observer =
-      NotificationCenter
-        .default
-        .addObserver(
-          forName: .showAlert,
-          object: nil,
-          queue: OperationQueue.main,
-          using: showAlert(notification:)) as? NSObject
-  }
-
-  private func deregisterFromAlertNotification() {
-    NotificationCenter.default.removeObserver(observer as Any)
-  }
-
-  private func showAlert(notification: Notification) {
-    DispatchQueue.main.async {
-      self.data.value = notification.alertData
-      self.showAlert = true
-    }
+struct ContentView_Previews: PreviewProvider {
+  static var previews: some View {
+    ContentView()
   }
 }
