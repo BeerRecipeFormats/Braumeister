@@ -42,10 +42,10 @@ enum Gravity {
   var description: String {
     switch self {
       case .plato(let val):
-        return String(format: "%.1f° Plato", val)
+        return String(format: "%.1f°Plato", val)
 
       case .brix(let val):
-        return String(format: "%.1f° Brix", val)
+        return String(format: "%.1f°Brix", val)
 
       case .sg(let val):
         return String(format: "%.3f", val)

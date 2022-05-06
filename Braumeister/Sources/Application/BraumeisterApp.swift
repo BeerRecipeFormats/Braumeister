@@ -2,7 +2,7 @@
 //  BraumeisterApp.swift
 //  Braumeister
 //
-//  Created by Thomas Bonk on 14.04.22.
+//  Created by Thomas Bonk on 06.05.22.
 //  Copyright 2022 Thomas Bonk <thomas@meandmymac.de>
 //
 //  Licensed under the Apache License, Version 2.0 (the "License");
@@ -28,7 +28,6 @@ struct BraumeisterApp: App {
   var body: some Scene {
     WindowGroup {
       ContentView()
-        .environmentObject(Repository())
     }
   }
 }
