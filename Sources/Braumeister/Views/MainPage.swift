@@ -26,6 +26,20 @@ struct MainPage: View {
   // MARK: - Public Properties
   
   var body: some View {
-    Text("Hello World!")
+    NavigationView {
+      List {
+        Section(header: Text("Berechnungen")) {
+          NavigationLink(destination: AlcholoCalculationView()) {
+            Text("Alkoholgehalt")
+          }
+        }
+      }
+      
+      EmptyView()
+    }
+    .background()
+    .padding()
+    .relativeWidth(0.80)
+    .relativeHeight(1)
   }
 }
