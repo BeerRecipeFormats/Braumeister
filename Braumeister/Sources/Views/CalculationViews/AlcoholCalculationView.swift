@@ -128,14 +128,6 @@ struct AlcoholCalculationView: View {
 
     alc = (261.1 / (261.53 - reT!.value)) * ((originalGravity.toPlato.value - reT!.value) / (2.0665 - 0.010665 * originalGravity.toPlato.value)) / 0.794
   }
-
-  private func optionalGravity(_ gravity: Gravity?, unit: String = "") -> String {
-    return gravity != nil ? gravity!.description + unit : ""
-  }
-
-  private func optionalFloat(_ value: Float?, decimals: Int = 0, unit: String = "") -> String {
-    return value != nil ? String(format: "%.\(decimals)f", value!) + unit : ""
-  }
 }
 
 struct AlcoholCalculationView_Previews: PreviewProvider {

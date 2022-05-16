@@ -13,9 +13,11 @@
 		E9D92DF82824E1630042FE91 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92DF62824E1630042FE91 /* ContentView.swift */; };
 		E9D92DFA2824E33D0042FE91 /* Gravity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92DF92824E33D0042FE91 /* Gravity.swift */; };
 		E9D92DFD2824E53B0042FE91 /* AlcoholCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92DFC2824E53B0042FE91 /* AlcoholCalculationView.swift */; };
-		E9D92E012824E65E0042FE91 /* GravityBinding.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92E002824E65E0042FE91 /* GravityBinding.swift */; };
+		E9D92E012824E65E0042FE91 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92E002824E65E0042FE91 /* Utilities.swift */; };
 		E9D92E042824E9B60042FE91 /* String+id.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92E032824E9B50042FE91 /* String+id.swift */; };
 		E9D92E0628252F9D0042FE91 /* DilutionCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92E0528252F9D0042FE91 /* DilutionCalculationView.swift */; };
+		E9D92E0828258B720042FE91 /* GravityConvertionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92E0728258B720042FE91 /* GravityConvertionView.swift */; };
+		E9D92E0A282592A10042FE91 /* BrewhouseYieldCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92E09282592A10042FE91 /* BrewhouseYieldCalculationView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,9 +28,11 @@
 		E9D92DF62824E1630042FE91 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E9D92DF92824E33D0042FE91 /* Gravity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gravity.swift; sourceTree = "<group>"; };
 		E9D92DFC2824E53B0042FE91 /* AlcoholCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlcoholCalculationView.swift; sourceTree = "<group>"; };
-		E9D92E002824E65E0042FE91 /* GravityBinding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityBinding.swift; sourceTree = "<group>"; };
+		E9D92E002824E65E0042FE91 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		E9D92E032824E9B50042FE91 /* String+id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+id.swift"; sourceTree = "<group>"; };
 		E9D92E0528252F9D0042FE91 /* DilutionCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DilutionCalculationView.swift; sourceTree = "<group>"; };
+		E9D92E0728258B720042FE91 /* GravityConvertionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GravityConvertionView.swift; sourceTree = "<group>"; };
+		E9D92E09282592A10042FE91 /* BrewhouseYieldCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrewhouseYieldCalculationView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,7 +121,9 @@
 			isa = PBXGroup;
 			children = (
 				E9D92DFC2824E53B0042FE91 /* AlcoholCalculationView.swift */,
+				E9D92E09282592A10042FE91 /* BrewhouseYieldCalculationView.swift */,
 				E9D92E0528252F9D0042FE91 /* DilutionCalculationView.swift */,
+				E9D92E0728258B720042FE91 /* GravityConvertionView.swift */,
 			);
 			path = CalculationViews;
 			sourceTree = "<group>";
@@ -125,7 +131,7 @@
 		E9D92DFF2824E6420042FE91 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				E9D92E002824E65E0042FE91 /* GravityBinding.swift */,
+				E9D92E002824E65E0042FE91 /* Utilities.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -175,10 +181,9 @@
 			};
 			buildConfigurationList = E9D92DDB2824E1130042FE91 /* Build configuration list for PBXProject "Braumeister" */;
 			compatibilityVersion = "Xcode 13.0";
-			developmentRegion = en;
+			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				de,
 			);
 			mainGroup = E9D92DD72824E1130042FE91;
@@ -212,8 +217,10 @@
 				E9D92DFA2824E33D0042FE91 /* Gravity.swift in Sources */,
 				E9D92DF72824E1630042FE91 /* BraumeisterApp.swift in Sources */,
 				E9D92E042824E9B60042FE91 /* String+id.swift in Sources */,
-				E9D92E012824E65E0042FE91 /* GravityBinding.swift in Sources */,
+				E9D92E012824E65E0042FE91 /* Utilities.swift in Sources */,
 				E9D92E0628252F9D0042FE91 /* DilutionCalculationView.swift in Sources */,
+				E9D92E0828258B720042FE91 /* GravityConvertionView.swift in Sources */,
+				E9D92E0A282592A10042FE91 /* BrewhouseYieldCalculationView.swift in Sources */,
 				E9D92DFD2824E53B0042FE91 /* AlcoholCalculationView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

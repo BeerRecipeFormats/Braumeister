@@ -27,8 +27,12 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       List {
-        NavigationLink("Alkoholgehalt")         { AlcoholCalculationView() }
-        NavigationLink("Verdünnungsrechner")    { DilutionCalculationView() }
+        Section("Berechnungen") {
+          NavigationLink("Alkoholgehalt")         { AlcoholCalculationView() }
+          NavigationLink("Dichteumrechnung")      { GravityConvertionView() }
+          NavigationLink("Sudhausausbeute ")      { BrewhouseYieldCalculationView() }
+          NavigationLink("Verdünnungsrechner")    { DilutionCalculationView() }
+        }
       }
       .listStyle(.sidebar)
       .navigationTitle("Braumeister")

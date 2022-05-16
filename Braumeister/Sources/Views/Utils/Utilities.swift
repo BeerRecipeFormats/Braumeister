@@ -1,5 +1,5 @@
 //
-//  GravityBinding.swift
+//  Utilities.swift
 //  Braumeister
 //
 //  Created by Thomas Bonk on 06.05.22.
@@ -19,6 +19,14 @@
 //
 
 import SwiftUI
+
+func optionalGravity(_ gravity: Gravity?, unit: String = "") -> String {
+  return gravity != nil ? gravity!.description + unit : ""
+}
+
+func optionalFloat(_ value: Float?, decimals: Int = 0, unit: String = "") -> String {
+  return value != nil ? String(format: "%.\(decimals)f", value!) + unit : ""
+}
 
 func gravityValueBinding(_ gravity: Binding<Gravity>, onChange: (() -> ())? = nil) -> Binding<Float> {
   return Binding {
