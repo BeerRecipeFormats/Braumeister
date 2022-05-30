@@ -30,6 +30,7 @@ struct ContentView: View {
         Section("Berechnungen") {
           NavigationLink("Alkoholgehalt")         { AlcoholCalculationView() }
           NavigationLink("Dichteumrechnung")      { GravityConvertionView() }
+          NavigationLink("Haupt- und Nachguss")   { MainPostCastCalculationView() }
           NavigationLink("Sudhausausbeute ")      { BrewhouseYieldCalculationView() }
           NavigationLink("Verdünnungsrechner")    { DilutionCalculationView() }
         }

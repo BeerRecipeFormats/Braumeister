@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E90EBC432844B23D007772B8 /* MainPostCastCalculationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E90EBC422844B23D007772B8 /* MainPostCastCalculationView.swift */; };
 		E9D92DE82824E1150042FE91 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D92DE72824E1150042FE91 /* Assets.xcassets */; };
 		E9D92DEB2824E1150042FE91 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9D92DEA2824E1150042FE91 /* Preview Assets.xcassets */; };
 		E9D92DF72824E1630042FE91 /* BraumeisterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D92DF42824E1630042FE91 /* BraumeisterApp.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E90EBC422844B23D007772B8 /* MainPostCastCalculationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPostCastCalculationView.swift; sourceTree = "<group>"; };
 		E9D92DE02824E1130042FE91 /* Braumeister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Braumeister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9D92DE72824E1150042FE91 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E9D92DEA2824E1150042FE91 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				E9D92E09282592A10042FE91 /* BrewhouseYieldCalculationView.swift */,
 				E9D92E0528252F9D0042FE91 /* DilutionCalculationView.swift */,
 				E9D92E0728258B720042FE91 /* GravityConvertionView.swift */,
+				E90EBC422844B23D007772B8 /* MainPostCastCalculationView.swift */,
 			);
 			path = CalculationViews;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				E9D92E042824E9B60042FE91 /* String+id.swift in Sources */,
 				E9D92E012824E65E0042FE91 /* Utilities.swift in Sources */,
 				E9D92E0628252F9D0042FE91 /* DilutionCalculationView.swift in Sources */,
+				E90EBC432844B23D007772B8 /* MainPostCastCalculationView.swift in Sources */,
 				E9D92E0828258B720042FE91 /* GravityConvertionView.swift in Sources */,
 				E9D92E0A282592A10042FE91 /* BrewhouseYieldCalculationView.swift in Sources */,
 				E9D92DFD2824E53B0042FE91 /* AlcoholCalculationView.swift in Sources */,
